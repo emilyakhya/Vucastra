@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "MODELS.md",
+                "file": "SOLUTION.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MODELS"
+              "title": "SOLUTION"
             }
           }
         ]
@@ -169,12 +169,25 @@
   },
   "active": "a62e3024098a7768",
   "lastOpenFiles": [
+    "MODELS.html",
+    "MASTER_FLOW.pdf",
+    "MASTER_FLOW.html",
+    "ANALISIS_RINGKASAN.pdf",
+    "ANALISIS_RINGKASAN.html",
+    "SOLUTION.pdf",
+    "SOLUTION.html",
+    "IR.pdf",
+    "IR.html",
+    "MASTER_UAT.pdf",
+    "MASTER_UAT.html",
+    "PDF_CONVERSION_README.md",
+    "MODELS.md",
+    "SOLUTION.md",
+    "Math.md",
+    "middle_power_capabilities.png",
     "DESIGN.md",
     "Defense.md",
-    "MODELS.md",
-    "Math.md",
     "IDEA.md",
-    "middle_power_capabilities.png",
     "MASTER_UAT.md",
     "predictive_diplomacy_components.png",
     "resource_allocation.png",

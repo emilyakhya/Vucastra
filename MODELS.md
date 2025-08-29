@@ -8,26 +8,22 @@ This document provides comprehensive mathematical formulations using LaTeX notat
 #### 1.1 Volatility Index (V)
 
 **LaTeX Formula:**
-```latex
-V = \frac{\sigma}{\mu} \times 100\%
-```
+
+$$V = \frac{\sigma}{\mu} \times 100\%$$
 
 **Where:**
 - $\sigma$ = Standard deviation of the time series
 - $\mu$ = Mean of the time series
 
 **Mathematical Definition:**
-```latex
-\sigma = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2}
-```
-```latex
-\mu = \frac{1}{n}\sum_{i=1}^{n}x_i
-```
+
+$$\sigma = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2}$$
+
+$$\mu = \frac{1}{n}\sum_{i=1}^{n}x_i$$
 
 **Coefficient of Variation:**
-```latex
-CV = \frac{\sigma}{\mu} = \frac{\sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2}}{\frac{1}{n}\sum_{i=1}^{n}x_i}
-```
+
+$$CV = \frac{\sigma}{\mu} = \frac{\sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2}}{\frac{1}{n}\sum_{i=1}^{n}x_i}$$
 
 **Mathematical Implementation:**
 ```python
@@ -43,21 +39,18 @@ def calculate_volatility_index(time_series):
 ```
 
 **Normalization:**
-```latex
-V_{normalized} = \frac{V - V_{min}}{V_{max} - V_{min}}
-```
+
+$$V_{normalized} = \frac{V - V_{min}}{V_{max} - V_{min}}$$
 
 **Standardization:**
-```latex
-V_{standardized} = \frac{V - \mu_V}{\sigma_V}
-```
+
+$$V_{standardized} = \frac{V - \mu_V}{\sigma_V}$$
 
 #### 1.2 Uncertainty Index (U)
 
 **LaTeX Formula:**
-```latex
-U = -\sum_{i=1}^{n} p_i \log_2(p_i)
-```
+
+$$U = -\sum_{i=1}^{n} p_i \log_2(p_i)$$
 
 **Where:**
 - $p_i$ = Probability of event $i$ occurring
@@ -65,19 +58,16 @@ U = -\sum_{i=1}^{n} p_i \log_2(p_i)
 - $n$ = Number of possible events
 
 **Shannon Entropy Definition:**
-```latex
-H(X) = -\sum_{i=1}^{n} p_i \log_2(p_i)
-```
+
+$$H(X) = -\sum_{i=1}^{n} p_i \log_2(p_i)$$
 
 **Properties:**
-```latex
-0 \leq H(X) \leq \log_2(n)
-```
+
+$$0 \leq H(X) \leq \log_2(n)$$
 
 **Maximum Entropy:**
-```latex
-H_{max} = \log_2(n)
-```
+
+$$H_{max} = \log_2(n)$$
 
 **Mathematical Implementation:**
 ```python
@@ -94,44 +84,38 @@ def calculate_uncertainty_index(probabilities):
 ```
 
 **Normalization:**
-```latex
-U_{normalized} = \frac{U}{\log_2(n)} = \frac{-\sum_{i=1}^{n} p_i \log_2(p_i)}{\log_2(n)}
-```
+
+$$U_{normalized} = \frac{U}{\log_2(n)} = \frac{-\sum_{i=1}^{n} p_i \log_2(p_i)}{\log_2(n)}$$
 
 **Relative Entropy:**
-```latex
-U_{relative} = \frac{H(X)}{H_{max}} = \frac{-\sum_{i=1}^{n} p_i \log_2(p_i)}{\log_2(n)}
-```
+
+$$U_{relative} = \frac{H(X)}{H_{max}} = \frac{-\sum_{i=1}^{n} p_i \log_2(p_i)}{\log_2(n)}$$
 
 #### 1.3 Complexity Index (C)
 
 **LaTeX Formula:**
-```latex
-C = \frac{\log_2(N)}{L}
-```
+
+$$C = \frac{\log_2(N)}{L}$$
 
 **Where:**
 - $N$ = Number of distinct elements or states
 - $L$ = Average length of patterns or sequences
 
 **Information Content:**
-```latex
-I = \log_2(N)
-```
+
+$$I = \log_2(N)$$
 
 **Average Pattern Length:**
-```latex
-L = \frac{1}{k}\sum_{j=1}^{k} l_j
-```
+
+$$L = \frac{1}{k}\sum_{j=1}^{k} l_j$$
 
 **Where:**
 - $k$ = Number of patterns
 - $l_j$ = Length of pattern $j$
 
 **Normalized Complexity:**
-```latex
-C_{normalized} = \frac{\log_2(N)}{L \cdot \log_2(N_{max})}
-```
+
+$$C_{normalized} = \frac{\log_2(N)}{L \cdot \log_2(N_{max})}$$
 
 **Mathematical Implementation:**
 ```python
@@ -147,39 +131,34 @@ def calculate_complexity_index(elements, pattern_lengths):
 ```
 
 **Normalization:**
-```latex
-C_{normalized} = \frac{C}{C_{max}} = \frac{\log_2(N)}{L \cdot \log_2(N_{max})}
-```
+
+$$C_{normalized} = \frac{C}{C_{max}} = \frac{\log_2(N)}{L \cdot \log_2(N_{max})}$$
 
 **Theoretical Maximum:**
-```latex
-C_{max} = \log_2(N_{max})
-```
+
+$$C_{max} = \log_2(N_{max})$$
 
 #### 1.4 Ambiguity Index (A)
 
 **LaTeX Formula:**
-```latex
-A = \frac{\sum_{i=1}^{n} u_i \log(u_i)}{\log(n)}
-```
+
+$$A = \frac{\sum_{i=1}^{n} u_i \log(u_i)}{\log(n)}$$
 
 **Where:**
 - $u_i$ = Uncertainty level for factor $i$
 - $n$ = Number of factors considered
 
 **Aggregated Uncertainty:**
-```latex
-A = \frac{\sum_{i=1}^{n} u_i \log(u_i)}{\log(n)}
-```
+
+$$A = \frac{\sum_{i=1}^{n} u_i \log(u_i)}{\log(n)}$$
 
 **Where:**
 - $u_i \in [0, 1]$ for all $i$
 - $\log$ = Natural logarithm
 
 **Normalized Ambiguity:**
-```latex
-A_{normalized} = \frac{\sum_{i=1}^{n} u_i \log(u_i)}{n \log(n)}
-```
+
+$$A_{normalized} = \frac{\sum_{i=1}^{n} u_i \log(u_i)}{n \log(n)}$$
 
 **Mathematical Implementation:**
 ```python
@@ -202,40 +181,34 @@ def calculate_ambiguity_index(uncertainty_levels):
 ```
 
 **Normalization:**
-```latex
-A_{normalized} = \frac{A}{A_{max}} = \frac{\sum_{i=1}^{n} u_i \log(u_i)}{n \log(n)}
-```
+
+$$A_{normalized} = \frac{A}{A_{max}} = \frac{\sum_{i=1}^{n} u_i \log(u_i)}{n \log(n)}$$
 
 **Maximum Ambiguity:**
-```latex
-A_{max} = n \log(n)
-```
+
+$$A_{max} = n \log(n)$$
 
 #### 1.5 VUCA Composite Index
 
 **LaTeX Formula:**
-```latex
-VUCA_{composite} = \sum_{i=1}^{4} w_i \cdot VUCA_i
-```
+
+$$VUCA_{composite} = \sum_{i=1}^{4} w_i \cdot VUCA_i$$
 
 **Where:**
 - $w_i$ = Weight for component $i$ ($\sum_{i=1}^{4} w_i = 1$)
 - $VUCA_i$ = Normalized value of component $i$
 
 **Component Breakdown:**
-```latex
-VUCA_{composite} = w_1 \cdot V + w_2 \cdot U + w_3 \cdot C + w_4 \cdot A
-```
+
+$$VUCA_{composite} = w_1 \cdot V + w_2 \cdot U + w_3 \cdot C + w_4 \cdot A$$
 
 **Weight Constraints:**
-```latex
-\sum_{i=1}^{4} w_i = 1, \quad w_i \geq 0 \quad \forall i
-```
+
+$$\sum_{i=1}^{4} w_i = 1, \quad w_i \geq 0 \quad \forall i$$
 
 **Normalized VUCA:**
-```latex
-VUCA_{normalized} = \frac{\sum_{i=1}^{4} w_i \cdot VUCA_i}{VUCA_{max}}
-```
+
+$$VUCA_{normalized} = \frac{\sum_{i=1}^{4} w_i \cdot VUCA_i}{VUCA_{max}}$$
 
 **Mathematical Implementation:**
 ```python
@@ -253,29 +226,24 @@ def calculate_vuca_composite(volatility, uncertainty, complexity, ambiguity, wei
 ```
 
 **Default Weights:**
-```latex
-\mathbf{w} = [0.25, 0.25, 0.25, 0.25]^T
-```
+
+$$\mathbf{w} = [0.25, 0.25, 0.25, 0.25]^T$$
 
 **Alternative Weighting Schemes:**
-```latex
-\mathbf{w}_{economic} = [0.35, 0.25, 0.25, 0.15]^T
-```
-```latex
-\mathbf{w}_{political} = [0.20, 0.40, 0.25, 0.15]^T
-```
-```latex
-\mathbf{w}_{security} = [0.20, 0.20, 0.40, 0.20]^T
-```
+
+$$\mathbf{w}_{economic} = [0.35, 0.25, 0.25, 0.15]^T$$
+
+$$\mathbf{w}_{political} = [0.20, 0.40, 0.25, 0.15]^T$$
+
+$$\mathbf{w}_{security} = [0.20, 0.20, 0.40, 0.20]^T$$
 
 ### 2. Middle Power Capability (MPC) Mathematical Framework
 
 #### 2.1 Economic Capability Score (E)
 
 **LaTeX Formula:**
-```latex
-E = \frac{\sum_{i=1}^{k} \alpha_i \cdot E_i}{\sum_{i=1}^{k} \alpha_i}
-```
+
+$$E = \frac{\sum_{i=1}^{k} \alpha_i \cdot E_i}{\sum_{i=1}^{k} \alpha_i}$$
 
 **Where:**
 - $\alpha_i$ = Weight for economic indicator $i$
@@ -283,38 +251,30 @@ E = \frac{\sum_{i=1}^{k} \alpha_i \cdot E_i}{\sum_{i=1}^{k} \alpha_i}
 - $k$ = Number of economic indicators
 
 **Normalized Economic Indicators:**
-```latex
-E_{gdp} = \frac{GDP_{pc} - GDP_{pc,min}}{GDP_{pc,max} - GDP_{pc,min}}
-```
-```latex
-E_{trade} = \frac{Trade - Trade_{min}}{Trade_{max} - Trade_{min}}
-```
-```latex
-E_{fdi} = \frac{FDI - FDI_{min}}{FDI_{max} - FDI_{min}}
-```
-```latex
-E_{growth} = \frac{Growth - Growth_{min}}{Growth_{max} - Growth_{min}}
-```
+
+$$E_{gdp} = \frac{GDP_{pc} - GDP_{pc,min}}{GDP_{pc,max} - GDP_{pc,min}}$$
+
+$$E_{trade} = \frac{Trade - Trade_{min}}{Trade_{max} - Trade_{min}}$$
+
+$$E_{fdi} = \frac{FDI - FDI_{min}}{FDI_{max} - FDI_{min}}$$
+
+$$E_{growth} = \frac{Growth - Growth_{min}}{Growth_{max} - Growth_{min}}$$
 
 **Weighted Economic Score:**
-```latex
-E = \alpha_1 \cdot E_{gdp} + \alpha_2 \cdot E_{trade} + \alpha_3 \cdot E_{fdi} + \alpha_4 \cdot E_{growth}
-```
+
+$$E = \alpha_1 \cdot E_{gdp} + \alpha_2 \cdot E_{trade} + \alpha_3 \cdot E_{fdi} + \alpha_4 \cdot E_{growth}$$
 
 **Economic Indicators Matrix:**
-```latex
-\mathbf{E} = \begin{bmatrix} E_{gdp} \\ E_{trade} \\ E_{fdi} \\ E_{growth} \end{bmatrix}
-```
+
+$$\mathbf{E} = \begin{bmatrix} E_{gdp} \\ E_{trade} \\ E_{fdi} \\ E_{growth} \end{bmatrix}$$
 
 **Economic Weights Vector:**
-```latex
-\boldsymbol{\alpha} = \begin{bmatrix} \alpha_1 \\ \alpha_2 \\ \alpha_3 \\ \alpha_4 \end{bmatrix}
-```
+
+$$\boldsymbol{\alpha} = \begin{bmatrix} \alpha_1 \\ \alpha_2 \\ \alpha_3 \\ \alpha_4 \end{bmatrix}$$
 
 **Economic Score Calculation:**
-```latex
-E = \frac{\boldsymbol{\alpha}^T \mathbf{E}}{\boldsymbol{\alpha}^T \mathbf{1}}
-```
+
+$$E = \frac{\boldsymbol{\alpha}^T \mathbf{E}}{\boldsymbol{\alpha}^T \mathbf{1}}$$
 
 **Where:**
 - $\mathbf{1}$ = Vector of ones
@@ -341,9 +301,8 @@ def calculate_economic_score(gdp_pc, trade, fdi, growth, weights):
 #### 2.2 Political Capability Score (P)
 
 **LaTeX Formula:**
-```latex
-P = \frac{\sum_{i=1}^{k} \beta_i \cdot P_i}{\sum_{i=1}^{k} \beta_i}
-```
+
+$$P = \frac{\sum_{i=1}^{k} \beta_i \cdot P_i}{\sum_{i=1}^{k} \beta_i}$$
 
 **Where:**
 - $\beta_i$ = Weight for political indicator $i$
@@ -351,38 +310,30 @@ P = \frac{\sum_{i=1}^{k} \beta_i \cdot P_i}{\sum_{i=1}^{k} \beta_i}
 - $k$ = Number of political indicators
 
 **Normalized Political Indicators:**
-```latex
-P_{stability} = \frac{Stability_{index}}{100}
-```
-```latex
-P_{law} = \frac{Law_{index}}{100}
-```
-```latex
-P_{corruption} = \frac{100 - Corruption_{index}}{100}
-```
-```latex
-P_{democracy} = \frac{Democracy_{index}}{100}
-```
+
+$$P_{stability} = \frac{Stability_{index}}{100}$$
+
+$$P_{law} = \frac{Law_{index}}{100}$$
+
+$$P_{corruption} = \frac{100 - Corruption_{index}}{100}$$
+
+$$P_{democracy} = \frac{Democracy_{index}}{100}$$
 
 **Political Indicators Matrix:**
-```latex
-\mathbf{P} = \begin{bmatrix} P_{stability} \\ P_{law} \\ P_{corruption} \\ P_{democracy} \end{bmatrix}
-```
+
+$$\mathbf{P} = \begin{bmatrix} P_{stability} \\ P_{law} \\ P_{corruption} \\ P_{democracy} \end{bmatrix}$$
 
 **Political Weights Vector:**
-```latex
-\boldsymbol{\beta} = \begin{bmatrix} \beta_1 \\ \beta_2 \\ \beta_3 \\ \beta_4 \end{bmatrix}
-```
+
+$$\boldsymbol{\beta} = \begin{bmatrix} \beta_1 \\ \beta_2 \\ \beta_3 \\ \beta_4 \end{bmatrix}$$
 
 **Political Score Calculation:**
-```latex
-P = \frac{\boldsymbol{\beta}^T \mathbf{P}}{\boldsymbol{\beta}^T \mathbf{1}}
-```
+
+$$P = \frac{\boldsymbol{\beta}^T \mathbf{P}}{\boldsymbol{\beta}^T \mathbf{1}}$$
 
 **Political Capability Index:**
-```latex
-P_{capability} = \sum_{i=1}^{4} \beta_i \cdot P_i
-```
+
+$$P_{capability} = \sum_{i=1}^{4} \beta_i \cdot P_i$$
 
 **Mathematical Implementation:**
 ```python
@@ -405,9 +356,8 @@ def calculate_political_score(stability, law, corruption, democracy, weights):
 #### 2.3 Security Capability Score (S)
 
 **LaTeX Formula:**
-```latex
-S = \frac{\sum_{i=1}^{k} \gamma_i \cdot S_i}{\sum_{i=1}^{k} \gamma_i}
-```
+
+$$S = \frac{\sum_{i=1}^{k} \gamma_i \cdot S_i}{\sum_{i=1}^{k} \gamma_i}$$
 
 **Where:**
 - $\gamma_i$ = Weight for security indicator $i$
@@ -415,38 +365,30 @@ S = \frac{\sum_{i=1}^{k} \gamma_i \cdot S_i}{\sum_{i=1}^{k} \gamma_i}
 - $k$ = Number of security indicators
 
 **Normalized Security Indicators:**
-```latex
-S_{military} = \frac{Military_{spending} - Min_{military}}{Max_{military} - Min_{military}}
-```
-```latex
-S_{alliance} = \frac{Alliance_{score}}{100}
-```
-```latex
-S_{border} = \frac{Border_{security_{index}}}{100}
-```
-```latex
-S_{cyber} = \frac{Cyber_{security_{index}}}{100}
-```
+
+$$S_{military} = \frac{Military_{spending} - Min_{military}}{Max_{military} - Min_{military}}$$
+
+$$S_{alliance} = \frac{Alliance_{score}}{100}$$
+
+$$S_{border} = \frac{Border_{security_{index}}}{100}$$
+
+$$S_{cyber} = \frac{Cyber_{security_{index}}}{100}$$
 
 **Security Indicators Matrix:**
-```latex
-\mathbf{S} = \begin{bmatrix} S_{military} \\ S_{alliance} \\ S_{border} \\ S_{cyber} \end{bmatrix}
-```
+
+$$\mathbf{S} = \begin{bmatrix} S_{military} \\ S_{alliance} \\ S_{border} \\ S_{cyber} \end{bmatrix}$$
 
 **Security Weights Vector:**
-```latex
-\boldsymbol{\gamma} = \begin{bmatrix} \gamma_1 \\ \gamma_2 \\ \gamma_3 \\ \gamma_4 \end{bmatrix}
-```
+
+$$\boldsymbol{\gamma} = \begin{bmatrix} \gamma_1 \\ \gamma_2 \\ \gamma_3 \\ \gamma_4 \end{bmatrix}$$
 
 **Security Score Calculation:**
-```latex
-S = \frac{\boldsymbol{\gamma}^T \mathbf{S}}{\boldsymbol{\gamma}^T \mathbf{1}}
-```
+
+$$S = \frac{\boldsymbol{\gamma}^T \mathbf{S}}{\boldsymbol{\gamma}^T \mathbf{1}}$$
 
 **Security Capability Index:**
-```latex
-S_{capability} = \sum_{i=1}^{4} \gamma_i \cdot S_i
-```
+
+$$S_{capability} = \sum_{i=1}^{4} \gamma_i \cdot S_i$$
 
 **Mathematical Implementation:**
 ```python
@@ -469,9 +411,8 @@ def calculate_security_score(military, alliance, border, cyber, weights):
 #### 2.4 Diplomatic Capability Score (D)
 
 **LaTeX Formula:**
-```latex
-D = \frac{\sum_{i=1}^{k} \delta_i \cdot D_i}{\sum_{i=1}^{k} \delta_i}
-```
+
+$$D = \frac{\sum_{i=1}^{k} \delta_i \cdot D_i}{\sum_{i=1}^{k} \delta_i}$$
 
 **Where:**
 - $\delta_i$ = Weight for diplomatic indicator $i$
@@ -479,38 +420,30 @@ D = \frac{\sum_{i=1}^{k} \delta_i \cdot D_i}{\sum_{i=1}^{k} \delta_i}
 - $k$ = Number of diplomatic indicators
 
 **Normalized Diplomatic Indicators:**
-```latex
-D_{embassies} = \frac{Embassies - Min_{embassies}}{Max_{embassies} - Min_{embassies}}
-```
-```latex
-D_{treaties} = \frac{Treaties_{count}}{Max_{treaties}}
-```
-```latex
-D_{io} = \frac{IO_{membership}}{Max_{io}}
-```
-```latex
-D_{network} = \frac{Network_{quality}}{100}
-```
+
+$$D_{embassies} = \frac{Embassies - Min_{embassies}}{Max_{embassies} - Min_{embassies}}$$
+
+$$D_{treaties} = \frac{Treaties_{count}}{Max_{treaties}}$$
+
+$$D_{io} = \frac{IO_{membership}}{Max_{io}}$$
+
+$$D_{network} = \frac{Network_{quality}}{100}$$
 
 **Diplomatic Indicators Matrix:**
-```latex
-\mathbf{D} = \begin{bmatrix} D_{embassies} \\ D_{treaties} \\ D_{io} \\ D_{network} \end{bmatrix}
-```
+
+$$\mathbf{D} = \begin{bmatrix} D_{embassies} \\ D_{treaties} \\ D_{io} \\ D_{network} \end{bmatrix}$$
 
 **Diplomatic Weights Vector:**
-```latex
-\boldsymbol{\delta} = \begin{bmatrix} \delta_1 \\ \delta_2 \\ \delta_3 \\ \delta_4 \end{bmatrix}
-```
+
+$$\boldsymbol{\delta} = \begin{bmatrix} \delta_1 \\ \delta_2 \\ \delta_3 \\ \delta_4 \end{bmatrix}$$
 
 **Diplomatic Score Calculation:**
-```latex
-D = \frac{\boldsymbol{\delta}^T \mathbf{D}}{\boldsymbol{\delta}^T \mathbf{1}}
-```
+
+$$D = \frac{\boldsymbol{\delta}^T \mathbf{D}}{\boldsymbol{\delta}^T \mathbf{1}}$$
 
 **Diplomatic Capability Index:**
-```latex
-D_{capability} = \sum_{i=1}^{4} \delta_i \cdot D_i
-```
+
+$$D_{capability} = \sum_{i=1}^{4} \delta_i \cdot D_i$$
 
 **Mathematical Implementation:**
 ```python
@@ -533,33 +466,28 @@ def calculate_diplomatic_score(embassies, treaties, io, network, weights):
 #### 2.5 MPC Composite Score
 
 **LaTeX Formula:**
-```latex
-MPC = \alpha \cdot E + \beta \cdot P + \gamma \cdot S + \delta \cdot D
-```
+
+$$MPC = \alpha \cdot E + \beta \cdot P + \gamma \cdot S + \delta \cdot D$$
 
 **Where:**
 - $\alpha, \beta, \gamma, \delta$ = Weights for each capability domain ($\alpha + \beta + \gamma + \delta = 1$)
 - $E, P, S, D$ = Normalized scores for each capability
 
 **Matrix Formulation:**
-```latex
-MPC = \mathbf{w}_{MPC}^T \cdot \mathbf{C}
-```
+
+$$MPC = \mathbf{w}_{MPC}^T \cdot \mathbf{C}$$
 
 **Where:**
-```latex
-\mathbf{w}_{MPC} = \begin{bmatrix} \alpha \\ \beta \\ \gamma \\ \delta \end{bmatrix}, \quad \mathbf{C} = \begin{bmatrix} E \\ P \\ S \\ D \end{bmatrix}
-```
+
+$$\mathbf{w}_{MPC} = \begin{bmatrix} \alpha \\ \beta \\ \gamma \\ \delta \end{bmatrix}, \quad \mathbf{C} = \begin{bmatrix} E \\ P \\ S \\ D \end{bmatrix}$$
 
 **Weight Constraints:**
-```latex
-\sum_{i=1}^{4} w_i = 1, \quad w_i \geq 0 \quad \forall i
-```
+
+$$\sum_{i=1}^{4} w_i = 1, \quad w_i \geq 0 \quad \forall i$$
 
 **MPC Score Range:**
-```latex
-MPC \in [0, 1]
-```
+
+$$MPC \in [0, 1]$$
 
 **Mathematical Implementation:**
 ```python
@@ -580,20 +508,16 @@ def calculate_mpc_composite(economic, political, security, diplomatic, weights):
 ```
 
 **Default Weights:**
-```latex
-\mathbf{w}_{MPC} = [0.30, 0.25, 0.25, 0.20]^T
-```
+
+$$\mathbf{w}_{MPC} = [0.30, 0.25, 0.25, 0.20]^T$$
 
 **Alternative Weighting Schemes:**
-```latex
-\mathbf{w}_{balanced} = [0.25, 0.25, 0.25, 0.25]^T
-```
-```latex
-\mathbf{w}_{security} = [0.20, 0.20, 0.40, 0.20]^T
-```
-```latex
-\mathbf{w}_{diplomatic} = [0.20, 0.20, 0.20, 0.40]^T
-```
+
+$$\mathbf{w}_{balanced} = [0.25, 0.25, 0.25, 0.25]^T$$
+
+$$\mathbf{w}_{security} = [0.20, 0.20, 0.40, 0.20]^T$$
+
+$$\mathbf{w}_{diplomatic} = [0.20, 0.20, 0.20, 0.40]^T$$
 
 ### 3. Machine Learning Models
 
@@ -602,9 +526,8 @@ def calculate_mpc_composite(economic, political, security, diplomatic, weights):
 **Model:** Random Forest Classifier
 
 **Mathematical Foundation:**
-```latex
-\hat{y} = \text{mode}\{h_1(x), h_2(x), \ldots, h_T(x)\}
-```
+
+$$\hat{y} = \text{mode}\{h_1(x), h_2(x), \ldots, h_T(x)\}$$
 
 **Where:**
 - $h_t(x)$ = Prediction of tree $t$ for input $x$
@@ -612,9 +535,8 @@ def calculate_mpc_composite(economic, political, security, diplomatic, weights):
 - $\text{mode}$ = Most frequent prediction
 
 **Ensemble Probability:**
-```latex
-P(y = c|x) = \frac{1}{T}\sum_{t=1}^{T} \mathbb{I}[h_t(x) = c]
-```
+
+$$P(y = c|x) = \frac{1}{T}\sum_{t=1}^{T} \mathbb{I}[h_t(x) = c]$$
 
 **Where:**
 - $\mathbb{I}[\cdot]$ = Indicator function
@@ -654,9 +576,8 @@ def train_vuca_classifier(X_train, y_train, hyperparameters=None):
 **Model:** Multi-layer Perceptron (MLP)
 
 **Mathematical Foundation:**
-```latex
-f(x) = W_L \cdot \sigma(W_{L-1} \cdot \sigma(\ldots \sigma(W_1 \cdot x + b_1) \ldots) + b_{L-1}) + b_L
-```
+
+$$f(x) = W_L \cdot \sigma(W_{L-1} \cdot \sigma(\ldots \sigma(W_1 \cdot x + b_1) \ldots) + b_{L-1}) + b_L$$
 
 **Where:**
 - $W_l$ = Weight matrix for layer $l$
@@ -665,17 +586,14 @@ f(x) = W_L \cdot \sigma(W_{L-1} \cdot \sigma(\ldots \sigma(W_1 \cdot x + b_1) \l
 - $L$ = Number of layers
 
 **ReLU Activation Function:**
-```latex
-\sigma(x) = \max(0, x)
-```
+
+$$\sigma(x) = \max(0, x)$$
 
 **Forward Propagation:**
-```latex
-z^{(l)} = W^{(l)} \cdot a^{(l-1)} + b^{(l)}
-```
-```latex
-a^{(l)} = \sigma(z^{(l)})
-```
+
+$$z^{(l)} = W^{(l)} \cdot a^{(l-1)} + b^{(l)}$$
+
+$$a^{(l)} = \sigma(z^{(l)})$$
 
 **Where:**
 - $z^{(l)}$ = Pre-activation for layer $l$
@@ -720,9 +638,8 @@ def build_mpc_neural_network(input_dim, hidden_layers=[64, 32, 16]):
 **Formula:** ARIMA(p,d,q)
 
 **Mathematical Formulation:**
-```latex
-\phi(B)(1-B)^d X_t = \theta(B) \epsilon_t
-```
+
+$$\phi(B)(1-B)^d X_t = \theta(B) \epsilon_t$$
 
 **Where:**
 - $\phi(B) = 1 - \phi_1 B - \phi_2 B^2 - \ldots - \phi_p B^p$ (AR polynomial)
@@ -732,9 +649,8 @@ def build_mpc_neural_network(input_dim, hidden_layers=[64, 32, 16]):
 - $\epsilon_t$ = White noise process
 
 **ARIMA(p,d,q) Process:**
-```latex
-X_t = \phi_1 X_{t-1} + \phi_2 X_{t-2} + \ldots + \phi_p X_{t-p} + \epsilon_t + \theta_1 \epsilon_{t-1} + \ldots + \theta_q \epsilon_{t-q}
-```
+
+$$X_t = \phi_1 X_{t-1} + \phi_2 X_{t-2} + \ldots + \phi_p X_{t-p} + \epsilon_t + \theta_1 \epsilon_{t-1} + \ldots + \theta_q \epsilon_{t-q}$$
 
 **Where:**
 - $p$ = Order of autoregressive terms
@@ -760,9 +676,8 @@ def fit_arima_model(time_series, order=(1,1,1)):
 **Formula:** VAR(p)
 
 **Mathematical Formulation:**
-```latex
-\mathbf{X}_t = \mathbf{c} + \sum_{i=1}^{p} \mathbf{A}_i \mathbf{X}_{t-i} + \boldsymbol{\epsilon}_t
-```
+
+$$\mathbf{X}_t = \mathbf{c} + \sum_{i=1}^{p} \mathbf{A}_i \mathbf{X}_{t-i} + \boldsymbol{\epsilon}_t$$
 
 **Where:**
 - $\mathbf{X}_t$ = Vector of $k$ time series at time $t$
@@ -772,14 +687,12 @@ def fit_arima_model(time_series, order=(1,1,1)):
 - $\boldsymbol{\epsilon}_t$ = Vector of error terms
 
 **VAR(1) Model:**
-```latex
-\mathbf{X}_t = \mathbf{c} + \mathbf{A}_1 \mathbf{X}_{t-1} + \boldsymbol{\epsilon}_t
-```
+
+$$\mathbf{X}_t = \mathbf{c} + \mathbf{A}_1 \mathbf{X}_{t-1} + \boldsymbol{\epsilon}_t$$
 
 **Matrix Form:**
-```latex
-\begin{bmatrix} X_{1t} \\ X_{2t} \\ \vdots \\ X_{kt} \end{bmatrix} = \begin{bmatrix} c_1 \\ c_2 \\ \vdots \\ c_k \end{bmatrix} + \begin{bmatrix} a_{11} & a_{12} & \ldots & a_{1k} \\ a_{21} & a_{22} & \ldots & a_{2k} \\ \vdots & \vdots & \ddots & \vdots \\ a_{k1} & a_{k2} & \ldots & a_{kk} \end{bmatrix} \begin{bmatrix} X_{1,t-1} \\ X_{2,t-1} \\ \vdots \\ X_{k,t-1} \end{bmatrix} + \begin{bmatrix} \epsilon_{1t} \\ \epsilon_{2t} \\ \vdots \\ \epsilon_{kt} \end{bmatrix}
-```
+
+$$\begin{bmatrix} X_{1t} \\ X_{2t} \\ \vdots \\ X_{kt} \end{bmatrix} = \begin{bmatrix} c_1 \\ c_2 \\ \vdots \\ c_k \end{bmatrix} + \begin{bmatrix} a_{11} & a_{12} & \ldots & a_{1k} \\ a_{21} & a_{22} & \ldots & a_{2k} \\ \vdots & \vdots & \ddots & \vdots \\ a_{k1} & a_{k2} & \ldots & a_{kk} \end{bmatrix} \begin{bmatrix} X_{1,t-1} \\ X_{2,t-1} \\ \vdots \\ X_{k,t-1} \end{bmatrix} + \begin{bmatrix} \epsilon_{1t} \\ \epsilon_{2t} \\ \vdots \\ \epsilon_{kt} \end{bmatrix}$$
 
 **Mathematical Implementation:**
 ```python
@@ -801,17 +714,14 @@ def fit_var_model(time_series, maxlags=5):
 #### 4.1 Linear Programming Model
 
 **Mathematical Formulation:**
-```latex
-\max_{\mathbf{x}} \quad f(\mathbf{x}) = \mathbf{w}^T \mathbf{x}
-```
+
+$$\max_{\mathbf{x}} \quad f(\mathbf{x}) = \mathbf{w}^T \mathbf{x}$$
 
 **Subject to:**
-```latex
-\mathbf{A} \mathbf{x} \leq \mathbf{b}
-```
-```latex
-\mathbf{x} \geq \mathbf{0}
-```
+
+$$\mathbf{A} \mathbf{x} \leq \mathbf{b}$$
+
+$$\mathbf{x} \geq \mathbf{0}$$
 
 **Where:**
 - $\mathbf{x} = [x_1, x_2, \ldots, x_n]^T$ = Decision variables
@@ -820,30 +730,24 @@ def fit_var_model(time_series, maxlags=5):
 - $\mathbf{b}$ = Constraint right-hand side vector
 
 **Budget Constraint:**
-```latex
-\sum_{i=1}^{n} c_i x_i \leq B
-```
+
+$$\sum_{i=1}^{n} c_i x_i \leq B$$
 
 **Resource Limits:**
-```latex
-x_i \geq 0 \quad \forall i = 1, 2, \ldots, n
-```
+
+$$x_i \geq 0 \quad \forall i = 1, 2, \ldots, n$$
 
 **Policy Constraints:**
-```latex
-\mathbf{A}_{policy} \mathbf{x} \leq \mathbf{b}_{policy}
-```
+
+$$\mathbf{A}_{policy} \mathbf{x} \leq \mathbf{b}_{policy}$$
 
 **Standard Form:**
-```latex
-\min_{\mathbf{x}} \quad -\mathbf{w}^T \mathbf{x}
-```
-```latex
-\text{s.t.} \quad \mathbf{A} \mathbf{x} \leq \mathbf{b}
-```
-```latex
-\quad \quad \mathbf{x} \geq \mathbf{0}
-```
+
+$$\min_{\mathbf{x}} \quad -\mathbf{w}^T \mathbf{x}$$
+
+$$\text{s.t.} \quad \mathbf{A} \mathbf{x} \leq \mathbf{b}$$
+
+$$\quad \quad \mathbf{x} \geq \mathbf{0}$$
 
 **Mathematical Implementation:**
 ```python
@@ -871,17 +775,16 @@ def optimize_resource_allocation(objective_weights, costs, budget, constraints_m
 #### 4.2 Multi-Objective Optimization
 
 **Mathematical Formulation:**
-```latex
-\min_{\mathbf{x}} \quad \mathbf{F}(\mathbf{x}) = [f_1(\mathbf{x}), f_2(\mathbf{x}), \ldots, f_m(\mathbf{x})]^T
-```
+
+$$\min_{\mathbf{x}} \quad \mathbf{F}(\mathbf{x}) = [f_1(\mathbf{x}), f_2(\mathbf{x}), \ldots, f_m(\mathbf{x})]^T$$
 
 **Subject to:**
-```latex
-g_i(\mathbf{x}) \leq 0 \quad \forall i = 1, 2, \ldots, p
-```
-```latex
+
+$$g_i(\mathbf{x}) \leq 0 \quad \forall i = 1, 2, \ldots, p$$
+
+$$
 h_j(\mathbf{x}) = 0 \quad \forall j = 1, 2, \ldots, q
-```
+$$
 
 **Where:**
 - $\mathbf{x} \in \mathbb{R}^n$ = Decision variables
@@ -890,72 +793,60 @@ h_j(\mathbf{x}) = 0 \quad \forall j = 1, 2, \ldots, q
 - $h_j(\mathbf{x})$ = Equality constraints
 
 **Pareto Dominance:**
-```latex
-\mathbf{x}_1 \prec \mathbf{x}_2 \iff f_i(\mathbf{x}_1) \leq f_i(\mathbf{x}_2) \quad \forall i
-```
-```latex
-\text{and} \quad f_j(\mathbf{x}_1) < f_j(\mathbf{x}_2) \quad \text{for at least one } j
-```
+
+$$\mathbf{x}_1 \prec \mathbf{x}_2 \iff f_i(\mathbf{x}_1) \leq f_i(\mathbf{x}_2) \quad \forall i$$
+
+$$\text{and} \quad f_j(\mathbf{x}_1) < f_j(\mathbf{x}_2) \quad \text{for at least one } j$$
 
 **Pareto Frontier:**
-```latex
-\mathcal{P} = \{\mathbf{x} \in \mathcal{X} : \nexists \mathbf{x}' \in \mathcal{X} \text{ such that } \mathbf{x}' \prec \mathbf{x}\}
-```
+
+$$\mathcal{P} = \{\mathbf{x} \in \mathcal{X} : \nexists \mathbf{x}' \in \mathcal{X} \text{ such that } \mathbf{x}' \prec \mathbf{x}\}$$
 
 **NSGA-II Algorithm:**
-```latex
-\text{Population: } P_t = \{\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_N\}
-```
-```latex
-\text{Offspring: } Q_t = \text{Selection}(P_t) \cup \text{Crossover}(P_t) \cup \text{Mutation}(P_t)
-```
-```latex
-P_{t+1} = \text{NonDominatedSort}(P_t \cup Q_t)
-```
+
+$$\text{Population: } P_t = \{\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_N\}$$
+
+$$\text{Offspring: } Q_t = \text{Selection}(P_t) \cup \text{Crossover}(P_t) \cup \text{Mutation}(P_t)$$
+
+$$P_{t+1} = \text{NonDominatedSort}(P_t \cup Q_t)$$
 
 ### 5. Bayesian Network
 
 #### 5.1 Conditional Probability Tables
 
 **Mathematical Foundation:**
-```latex
-P(X|\text{Parents}(X)) = \frac{P(X, \text{Parents}(X))}{P(\text{Parents}(X))}
-```
+
+$$P(X|\text{Parents}(X)) = \frac{P(X, \text{Parents}(X))}{P(\text{Parents}(X))}$$
 
 **Joint Probability:**
-```latex
-P(X_1, X_2, \ldots, X_n) = \prod_{i=1}^{n} P(X_i|\text{Parents}(X_i))
-```
+
+$$P(X_1, X_2, \ldots, X_n) = \prod_{i=1}^{n} P(X_i|\text{Parents}(X_i))$$
 
 **Where:**
 - $X_i$ = Random variable $i$
 - $\text{Parents}(X_i)$ = Parent variables of $X_i$
 
 **Bayesian Network Factorization:**
-```latex
-P(\mathbf{X}) = \prod_{i=1}^{n} P(X_i|\pi_i)
-```
+
+$$P(\mathbf{X}) = \prod_{i=1}^{n} P(X_i|\pi_i)$$
 
 **Where:**
 - $\pi_i$ = Parent set of variable $X_i$
 - $\mathbf{X} = [X_1, X_2, \ldots, X_n]^T$
 
 **Conditional Independence:**
-```latex
-X \perp Y|Z \iff P(X, Y|Z) = P(X|Z)P(Y|Z)
-```
+
+$$X \perp Y|Z \iff P(X, Y|Z) = P(X|Z)P(Y|Z)$$
 
 **Chain Rule:**
-```latex
-P(X_1, X_2, \ldots, X_n) = P(X_1)P(X_2|X_1)P(X_3|X_1, X_2) \ldots P(X_n|X_1, X_2, \ldots, X_{n-1})
-```
+
+$$P(X_1, X_2, \ldots, X_n) = P(X_1)P(X_2|X_1)P(X_3|X_1, X_2) \ldots P(X_n|X_1, X_2, \ldots, X_{n-1})$$
 
 #### 5.2 Bayesian Inference
 
 **Bayes' Theorem:**
-```latex
-P(X|E) = \frac{P(E|X) \cdot P(X)}{P(E)}
-```
+
+$$P(X|E) = \frac{P(E|X) \cdot P(X)}{P(E)}$$
 
 **Where:**
 - $P(X|E)$ = Posterior probability
@@ -964,28 +855,24 @@ P(X|E) = \frac{P(E|X) \cdot P(X)}{P(E)}
 - $P(E)$ = Evidence
 
 **Evidence Calculation:**
-```latex
-P(E) = \sum_{i} P(E|X_i) \cdot P(X_i)
-```
+
+$$P(E) = \sum_{i} P(E|X_i) \cdot P(X_i)$$
 
 **Posterior Odds:**
-```latex
-\frac{P(X|E)}{P(\neg X|E)} = \frac{P(E|X)}{P(E|\neg X)} \cdot \frac{P(X)}{P(\neg X)}
-```
+
+$$\frac{P(X|E)}{P(\neg X|E)} = \frac{P(E|X)}{P(E|\neg X)} \cdot \frac{P(X)}{P(\neg X)}$$
 
 **Where:**
 - $\frac{P(X)}{P(\neg X)}$ = Prior odds
 - $\frac{P(E|X)}{P(E|\neg X)}$ = Likelihood ratio
 
 **Multiple Evidence:**
-```latex
-P(X|E_1, E_2, \ldots, E_n) \propto P(X) \prod_{i=1}^{n} P(E_i|X)
-```
+
+$$P(X|E_1, E_2, \ldots, E_n) \propto P(X) \prod_{i=1}^{n} P(E_i|X)$$
 
 **Sequential Update:**
-```latex
-P(X|E_{new}) = \frac{P(E_{new}|X) \cdot P(X|E_{old})}{P(E_{new}|E_{old})}
-```
+
+$$P(X|E_{new}) = \frac{P(E_{new}|X) \cdot P(X|E_{old})}{P(E_{new}|E_{old})}$$
 
 **Mathematical Implementation:**
 ```python
@@ -1006,9 +893,8 @@ def bayesian_inference(likelihood, prior, evidence):
 #### 6.1 Parameter Sampling
 
 **Mathematical Foundation:**
-```latex
-x_i = \mu_i + \sigma_i \cdot Z
-```
+
+$$x_i = \mu_i + \sigma_i \cdot Z$$
 
 **Where:**
 - $x_i$ = Sampled value for parameter $i$
@@ -1017,27 +903,24 @@ x_i = \mu_i + \sigma_i \cdot Z
 - $Z \sim \mathcal{N}(0,1)$ = Standard normal distribution
 
 **Multivariate Normal Sampling:**
-```latex
-\mathbf{x} \sim \mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})
-```
+
+$$\mathbf{x} \sim \mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$$
 
 **Where:**
 - $\boldsymbol{\mu} = [\mu_1, \mu_2, \ldots, \mu_n]^T$ = Mean vector
 - $\boldsymbol{\Sigma}$ = Covariance matrix
 
 **Cholesky Decomposition:**
-```latex
-\mathbf{x} = \boldsymbol{\mu} + \mathbf{L} \mathbf{Z}
-```
+
+$$\mathbf{x} = \boldsymbol{\mu} + \mathbf{L} \mathbf{Z}$$
 
 **Where:**
 - $\mathbf{L}$ = Lower triangular matrix such that $\mathbf{L}\mathbf{L}^T = \boldsymbol{\Sigma}$
 - $\mathbf{Z} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$
 
 **Uniform Sampling:**
-```latex
-x_i \sim \mathcal{U}(a_i, b_i)
-```
+
+$$x_i \sim \mathcal{U}(a_i, b_i)$$
 
 **Where:**
 - $a_i, b_i$ = Lower and upper bounds for parameter $i$
@@ -1062,9 +945,8 @@ def monte_carlo_sampling(means, stds, n_samples=10000):
 #### 6.2 Confidence Intervals
 
 **Mathematical Foundation:**
-```latex
-CI = [\bar{x} - t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}}, \bar{x} + t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}}]
-```
+
+$$CI = [\bar{x} - t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}}, \bar{x} + t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}}]$$
 
 **Where:**
 - $\bar{x}$ = Sample mean
@@ -1073,24 +955,20 @@ CI = [\bar{x} - t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}}, \bar{x} + t_{\alpha/
 - $n$ = Sample size
 
 **Sample Mean:**
-```latex
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-```
+
+$$\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$$
 
 **Sample Standard Deviation:**
-```latex
-s = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2}
-```
+
+$$s = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2}$$
 
 **Margin of Error:**
-```latex
-ME = t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}}
-```
+
+$$ME = t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}}$$
 
 **Confidence Level:**
-```latex
-P(\bar{x} - ME \leq \mu \leq \bar{x} + ME) = 1 - \alpha
-```
+
+$$P(\bar{x} - ME \leq \mu \leq \bar{x} + ME) = 1 - \alpha$$
 
 **Where:**
 - $\mu$ = Population mean
@@ -1098,9 +976,8 @@ P(\bar{x} - ME \leq \mu \leq \bar{x} + ME) = 1 - \alpha
 - $1 - \alpha$ = Confidence level
 
 **Large Sample Approximation:**
-```latex
-CI \approx [\bar{x} - z_{\alpha/2} \cdot \frac{s}{\sqrt{n}}, \bar{x} + z_{\alpha/2} \cdot \frac{s}{\sqrt{n}}]
-```
+
+$$CI \approx [\bar{x} - z_{\alpha/2} \cdot \frac{s}{\sqrt{n}}, \bar{x} + z_{\alpha/2} \cdot \frac{s}{\sqrt{n}}]$$
 
 **Where:**
 - $z_{\alpha/2}$ = Standard normal critical value
@@ -1137,34 +1014,28 @@ def calculate_confidence_interval(data, confidence_level=0.95):
 #### 7.1 Classification Metrics
 
 **Confusion Matrix:**
-```latex
-\mathbf{C} = \begin{bmatrix} TP & FP \\ FN & TN \end{bmatrix}
-```
+
+$$\mathbf{C} = \begin{bmatrix} TP & FP \\ FN & TN \end{bmatrix}$$
 
 **Accuracy:**
-```latex
-Acc = \frac{TP + TN}{TP + TN + FP + FN} = \frac{TP + TN}{N}
-```
+
+$$Acc = \frac{TP + TN}{TP + TN + FP + FN} = \frac{TP + TN}{N}$$
 
 **Precision:**
-```latex
-Prec = \frac{TP}{TP + FP} = P(\hat{y} = 1|y = 1)
-```
+
+$$Prec = \frac{TP}{TP + FP} = P(\hat{y} = 1|y = 1)$$
 
 **Recall (Sensitivity):**
-```latex
-Rec = \frac{TP}{TP + FN} = P(\hat{y} = 1|y = 1)
-```
+
+$$Rec = \frac{TP}{TP + FN} = P(\hat{y} = 1|y = 1)$$
 
 **Specificity:**
-```latex
-Spec = \frac{TN}{TN + FP} = P(\hat{y} = 0|y = 0)
-```
+
+$$Spec = \frac{TN}{TN + FP} = P(\hat{y} = 0|y = 0)$$
 
 **F1-Score:**
-```latex
-F1 = 2 \cdot \frac{Prec \cdot Rec}{Prec + Rec} = \frac{2 \cdot TP}{2 \cdot TP + FP + FN}
-```
+
+$$F1 = 2 \cdot \frac{Prec \cdot Rec}{Prec + Rec} = \frac{2 \cdot TP}{2 \cdot TP + FP + FN}$$
 
 **Where:**
 - $TP$ = True Positives
@@ -1194,24 +1065,20 @@ def calculate_classification_metrics(y_true, y_pred):
 #### 7.2 Regression Metrics
 
 **Mean Squared Error (MSE):**
-```latex
-MSE = \frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2
-```
+
+$$MSE = \frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2$$
 
 **Root Mean Squared Error (RMSE):**
-```latex
-RMSE = \sqrt{MSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}
-```
+
+$$RMSE = \sqrt{MSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}$$
 
 **Mean Absolute Error (MAE):**
-```latex
-MAE = \frac{1}{n}\sum_{i=1}^{n}|y_i - \hat{y}_i|
-```
+
+$$MAE = \frac{1}{n}\sum_{i=1}^{n}|y_i - \hat{y}_i|$$
 
 **R² Score (Coefficient of Determination):**
-```latex
-R^2 = 1 - \frac{\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}{\sum_{i=1}^{n}(y_i - \bar{y})^2}
-```
+
+$$R^2 = 1 - \frac{\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}{\sum_{i=1}^{n}(y_i - \bar{y})^2}$$
 
 **Where:**
 - $y_i$ = Actual value for sample $i$
@@ -1220,17 +1087,15 @@ R^2 = 1 - \frac{\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}{\sum_{i=1}^{n}(y_i - \bar{y})
 - $n$ = Number of samples
 
 **Adjusted R²:**
-```latex
-R^2_{adj} = 1 - \frac{(1-R^2)(n-1)}{n-p-1}
-```
+
+$$R^2_{adj} = 1 - \frac{(1-R^2)(n-1)}{n-p-1}$$
 
 **Where:**
 - $p$ = Number of predictors
 
 **Mean Absolute Percentage Error (MAPE):**
-```latex
-MAPE = \frac{100\%}{n}\sum_{i=1}^{n}\left|\frac{y_i - \hat{y}_i}{y_i}\right|
-```
+
+$$MAPE = \frac{100\%}{n}\sum_{i=1}^{n}\left|\frac{y_i - \hat{y}_i}{y_i}\right|$$
 
 **Mathematical Implementation:**
 ```python
@@ -1261,19 +1126,16 @@ def calculate_regression_metrics(y_true, y_pred):
 #### 8.1 Normalization
 
 **Min-Max Normalization:**
-```latex
-x_{norm} = \frac{x - x_{min}}{x_{max} - x_{min}}
-```
+
+$$x_{norm} = \frac{x - x_{min}}{x_{max} - x_{min}}$$
 
 **Z-Score Normalization (Standardization):**
-```latex
-x_{std} = \frac{x - \mu}{\sigma}
-```
+
+$$x_{std} = \frac{x - \mu}{\sigma}$$
 
 **Robust Scaling:**
-```latex
-x_{robust} = \frac{x - Q_2}{Q_3 - Q_1}
-```
+
+$$x_{robust} = \frac{x - Q_2}{Q_3 - Q_1}$$
 
 **Where:**
 - $Q_1$ = First quartile (25th percentile)
@@ -1281,14 +1143,12 @@ x_{robust} = \frac{x - Q_2}{Q_3 - Q_1}
 - $Q_3$ = Third quartile (75th percentile)
 
 **Max Absolute Scaling:**
-```latex
-x_{maxabs} = \frac{x}{\max(|x_{max}|, |x_{min}|)}
-```
+
+$$x_{maxabs} = \frac{x}{\max(|x_{max}|, |x_{min}|)}$$
 
 **Log Transformation:**
-```latex
-x_{log} = \log(x + \epsilon)
-```
+
+$$x_{log} = \log(x + \epsilon)$$
 
 **Where:**
 - $\epsilon$ = Small constant to avoid $\log(0)$
@@ -1318,44 +1178,37 @@ def normalize_data(data, method='minmax'):
 #### 8.2 Feature Engineering
 
 **Polynomial Features:**
-```latex
-\phi(x) = [1, x, x^2, x^3, \ldots, x^d]
-```
+
+$$\phi(x) = [1, x, x^2, x^3, \ldots, x^d]$$
 
 **Interaction Terms:**
-```latex
-\phi(x_1, x_2) = [1, x_1, x_2, x_1x_2, x_1^2, x_2^2]
-```
+
+$$\phi(x_1, x_2) = [1, x_1, x_2, x_1x_2, x_1^2, x_2^2]$$
 
 **Lag Features (Time Series):**
-```latex
-x_{t-1}, x_{t-2}, \ldots, x_{t-p}
-```
+
+$$x_{t-1}, x_{t-2}, \ldots, x_{t-p}$$
 
 **Rolling Statistics:**
-```latex
-\mu_{rolling}(t) = \frac{1}{w}\sum_{i=t-w+1}^{t} x_i
-```
-```latex
-\sigma_{rolling}(t) = \sqrt{\frac{1}{w-1}\sum_{i=t-w+1}^{t}(x_i - \mu_{rolling}(t))^2}
-```
+
+$$\mu_{rolling}(t) = \frac{1}{w}\sum_{i=t-w+1}^{t} x_i$$
+
+$$\sigma_{rolling}(t) = \sqrt{\frac{1}{w-1}\sum_{i=t-w+1}^{t}(x_i - \mu_{rolling}(t))^2}$$
 
 **Where:**
 - $w$ = Window size
 - $t$ = Current time point
 
 **Exponential Moving Average:**
-```latex
-EMA_t = \alpha \cdot x_t + (1-\alpha) \cdot EMA_{t-1}
-```
+
+$$EMA_t = \alpha \cdot x_t + (1-\alpha) \cdot EMA_{t-1}$$
 
 **Where:**
 - $\alpha$ = Smoothing factor ($0 < \alpha < 1$)
 
 **Fourier Features:**
-```latex
-\phi_f(x) = [\sin(2\pi fx), \cos(2\pi fx)]
-```
+
+$$\phi_f(x) = [\sin(2\pi fx), \cos(2\pi fx)]$$
 
 **Where:**
 - $f$ = Frequency
@@ -1379,18 +1232,16 @@ def create_polynomial_features(X, degree=2):
 #### 9.1 K-Fold Cross-Validation
 
 **Mathematical Foundation:**
-```latex
-CV_{score} = \frac{1}{k}\sum_{i=1}^{k} Score_i
-```
+
+$$CV_{score} = \frac{1}{k}\sum_{i=1}^{k} Score_i$$
 
 **Where:**
 - $Score_i$ = Score for fold $i$
 - $k$ = Number of folds
 
 **Stratified K-Fold:**
-```latex
-CV_{stratified} = \frac{1}{k}\sum_{i=1}^{k} \frac{1}{n_i}\sum_{j=1}^{n_i} L(y_{ij}, \hat{y}_{ij})
-```
+
+$$CV_{stratified} = \frac{1}{k}\sum_{i=1}^{k} \frac{1}{n_i}\sum_{j=1}^{n_i} L(y_{ij}, \hat{y}_{ij})$$
 
 **Where:**
 - $n_i$ = Number of samples in fold $i$
@@ -1399,17 +1250,15 @@ CV_{stratified} = \frac{1}{k}\sum_{i=1}^{k} \frac{1}{n_i}\sum_{j=1}^{n_i} L(y_{i
 - $\hat{y}_{ij}$ = Predicted value for sample $j$ in fold $i$
 
 **Leave-One-Out Cross-Validation:**
-```latex
-LOO_{score} = \frac{1}{n}\sum_{i=1}^{n} L(y_i, \hat{y}_{i}^{(-i)})
-```
+
+$$LOO_{score} = \frac{1}{n}\sum_{i=1}^{n} L(y_i, \hat{y}_{i}^{(-i)})$$
 
 **Where:**
 - $\hat{y}_{i}^{(-i)}$ = Prediction for sample $i$ using model trained on all samples except $i$
 
 **Bootstrap Validation:**
-```latex
-B_{score} = \frac{1}{B}\sum_{b=1}^{B} \frac{1}{n_{out}^{(b)}}\sum_{i \in \text{Out}_b} L(y_i, \hat{y}_{i}^{(b)})
-```
+
+$$B_{score} = \frac{1}{B}\sum_{b=1}^{B} \frac{1}{n_{out}^{(b)}}\sum_{i \in \text{Out}_b} L(y_i, \hat{y}_{i}^{(b)})$$
 
 **Where:**
 - $B$ = Number of bootstrap samples
@@ -1437,23 +1286,21 @@ def perform_cross_validation(model, X, y, cv=5, scoring='accuracy'):
 #### 10.1 Value at Risk (VaR)
 
 **Mathematical Definition:**
-```latex
-VaR(\alpha) = F^{-1}(\alpha)
-```
+
+$$VaR(\alpha) = F^{-1}(\alpha)$$
 
 **Where:**
 - $F^{-1}$ = Inverse cumulative distribution function
 - $\alpha$ = Confidence level (e.g., 0.05 for 95% confidence)
 
 **Probability Interpretation:**
-```latex
-P(X \leq VaR(\alpha)) = \alpha
-```
+
+$$P(X \leq VaR(\alpha)) = \alpha$$
 
 **Parametric VaR (Normal Distribution):**
-```latex
+$$
 VaR(\alpha) = \mu + \sigma \cdot \Phi^{-1}(\alpha)
-```
+$$
 
 **Where:**
 - $\mu$ = Mean of returns
@@ -1461,19 +1308,18 @@ VaR(\alpha) = \mu + \sigma \cdot \Phi^{-1}(\alpha)
 - $\Phi^{-1}$ = Inverse standard normal CDF
 
 **Historical VaR:**
-```latex
+$$
 VaR(\alpha) = \text{Percentile}_{\alpha} \text{ of historical returns}
-```
+$$
 
 **Conditional VaR (Expected Shortfall):**
-```latex
+$$
 CVaR(\alpha) = E[X|X \leq VaR(\alpha)]
-```
+$$
 
 **Portfolio VaR:**
-```latex
-VaR_p(\alpha) = \sqrt{\mathbf{w}^T \boldsymbol{\Sigma} \mathbf{w}} \cdot \Phi^{-1}(\alpha)
-```
+
+$$VaR_p(\alpha) = \sqrt{\mathbf{w}^T \boldsymbol{\Sigma} \mathbf{w}} \cdot \Phi^{-1}(\alpha)$$
 
 **Where:**
 - $\mathbf{w}$ = Portfolio weights
@@ -1494,40 +1340,35 @@ def calculate_var(data, confidence_level=0.05):
 #### 10.2 Expected Shortfall (ES)
 
 **Mathematical Definition:**
-```latex
+$$
 ES(\alpha) = E[X|X \leq VaR(\alpha)]
-```
+$$
 
 **Alternative Formulation:**
-```latex
-ES(\alpha) = \frac{1}{\alpha} \int_{-\infty}^{VaR(\alpha)} x \cdot f(x) dx
-```
+
+$$ES(\alpha) = \frac{1}{\alpha} \int_{-\infty}^{VaR(\alpha)} x \cdot f(x) dx$$
 
 **Where:**
 - $f(x)$ = Probability density function of $X$
 - $\alpha$ = Confidence level
 
 **Empirical ES:**
-```latex
-ES(\alpha) = \frac{1}{n\alpha} \sum_{i=1}^{n} x_i \cdot \mathbb{I}[x_i \leq VaR(\alpha)]
-```
+
+$$ES(\alpha) = \frac{1}{n\alpha} \sum_{i=1}^{n} x_i \cdot \mathbb{I}[x_i \leq VaR(\alpha)]$$
 
 **Where:**
 - $\mathbb{I}[\cdot]$ = Indicator function
 - $n$ = Number of observations
 
 **Properties:**
-```latex
-ES(\alpha) \leq VaR(\alpha)
-```
-```latex
-ES(\alpha) \geq E[X]
-```
+
+$$ES(\alpha) \leq VaR(\alpha)$$
+
+$$ES(\alpha) \geq E[X]$$
 
 **Portfolio ES:**
-```latex
-ES_p(\alpha) = \frac{1}{\alpha} \int_{-\infty}^{VaR_p(\alpha)} \mathbf{w}^T \mathbf{r} \cdot f(\mathbf{r}) d\mathbf{r}
-```
+
+$$ES_p(\alpha) = \frac{1}{\alpha} \int_{-\infty}^{VaR_p(\alpha)} \mathbf{w}^T \mathbf{r} \cdot f(\mathbf{r}) d\mathbf{r}$$
 
 **Where:**
 - $\mathbf{r}$ = Vector of asset returns
@@ -1540,19 +1381,19 @@ ES_p(\alpha) = \frac{1}{\alpha} \int_{-\infty}^{VaR_p(\alpha)} \mathbf{w}^T \mat
 ### **Complete System Mathematical Framework**
 
 **Integrated VUCA-MPC System:**
-```latex
+$$
 \mathbf{S} = \begin{bmatrix} VUCA_{composite} \\ MPC_{score} \end{bmatrix} = \begin{bmatrix} \sum_{i=1}^{4} w_i \cdot VUCA_i \\ \alpha \cdot E + \beta \cdot P + \gamma \cdot S + \delta \cdot D \end{bmatrix}
-```
+$$
 
 **System State Vector:**
-```latex
+$$
 \mathbf{X}_t = \begin{bmatrix} V_t \\ U_t \\ C_t \\ A_t \\ E_t \\ P_t \\ S_t \\ D_t \end{bmatrix}
-```
+$$
 
 **State Transition Equation:**
-```latex
+$$
 \mathbf{X}_{t+1} = \mathbf{A} \mathbf{X}_t + \mathbf{B} \mathbf{u}_t + \boldsymbol{\epsilon}_t
-```
+$$
 
 **Where:**
 - $\mathbf{A}$ = State transition matrix
@@ -1561,9 +1402,9 @@ ES_p(\alpha) = \frac{1}{\alpha} \int_{-\infty}^{VaR_p(\alpha)} \mathbf{w}^T \mat
 - $\boldsymbol{\epsilon}_t$ = System noise
 
 **Performance Objective Function:**
-```latex
+$$
 J = \int_{0}^{T} [\mathbf{X}^T(t) \mathbf{Q} \mathbf{X}(t) + \mathbf{u}^T(t) \mathbf{R} \mathbf{u}(t)] dt
-```
+$$
 
 **Where:**
 - $\mathbf{Q}$ = State cost matrix
@@ -1573,9 +1414,9 @@ J = \int_{0}^{T} [\mathbf{X}^T(t) \mathbf{Q} \mathbf{X}(t) + \mathbf{u}^T(t) \ma
 ### **Statistical Inference Framework**
 
 **Bayesian Posterior:**
-```latex
+$$
 P(\boldsymbol{\theta}|\mathbf{D}) \propto P(\mathbf{D}|\boldsymbol{\theta}) \cdot P(\boldsymbol{\theta})
-```
+$$
 
 **Where:**
 - $\boldsymbol{\theta}$ = Model parameters
@@ -1584,30 +1425,29 @@ P(\boldsymbol{\theta}|\mathbf{D}) \propto P(\mathbf{D}|\boldsymbol{\theta}) \cdo
 - $P(\mathbf{D}|\boldsymbol{\theta})$ = Likelihood function
 
 **Maximum Likelihood Estimation:**
-```latex
+$$
 \hat{\boldsymbol{\theta}}_{MLE} = \arg\max_{\boldsymbol{\theta}} P(\mathbf{D}|\boldsymbol{\theta})
-```
+$$
 
 **Maximum A Posteriori Estimation:**
-```latex
+$$
 \hat{\boldsymbol{\theta}}_{MAP} = \arg\max_{\boldsymbol{\theta}} P(\boldsymbol{\theta}|\mathbf{D})
-```
+$$
 
 ### **Uncertainty Quantification**
 
 **Total Uncertainty:**
-```latex
-U_{total} = U_{aleatory} + U_{epistemic}
-```
+
+$$U_{total} = U_{aleatory} + U_{epistemic}$$
 
 **Where:**
 - $U_{aleatory}$ = Inherent randomness
 - $U_{epistemic}$ = Knowledge uncertainty
 
 **Confidence Bands:**
-```latex
+$$
 CI_{prediction} = \hat{y} \pm t_{\alpha/2, n-p} \cdot s \cdot \sqrt{1 + \mathbf{x}_0^T (\mathbf{X}^T\mathbf{X})^{-1} \mathbf{x}_0}
-```
+$$
 
 **Where:**
 - $\mathbf{x}_0$ = New input vector
