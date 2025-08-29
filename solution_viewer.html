@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUCA-MPC Solution Documentation</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .toc {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .toc h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .toc ol {
+            padding-left: 20px;
+        }
+
+        .toc li {
+            margin-bottom: 8px;
+        }
+
+        .toc a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .toc a:hover {
+            color: #667eea;
+        }
+
+        .content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            color: #667eea;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #667eea;
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            color: #34495e;
+        }
+
+        h4 {
+            font-size: 1.2em;
+            color: #7f8c8d;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #e74c3c;
+        }
+
+        pre {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            line-height: 1.4;
+        }
+
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+        }
+
+        .math {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .mermaid {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .info-box {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .warning-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .success-box {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #667eea;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .navigation {
+            position: sticky;
+            top: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-link {
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: #5a6fd8;
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+            }
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #667eea;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>VUCA-MPC Solution Documentation</h1>
+            <p>Comprehensive Solution for VUCA and Middle Power Capabilities Analysis System</p>
+        </div>
+
+        <div class="navigation">
+            <div class="nav-links">
+                <a href="#system-overview" class="nav-link">System Overview</a>
+                <a href="#mathematical-framework" class="nav-link">Math Framework</a>
+                <a href="#system-architecture" class="nav-link">Architecture</a>
+                <a href="#implementation-workflow" class="nav-link">Workflow</a>
+                <a href="#machine-learning-models" class="nav-link">ML Models</a>
+                <a href="#optimization-engine" class="nav-link">Optimization</a>
+                <a href="#risk-assessment" class="nav-link">Risk Assessment</a>
+                <a href="#performance-metrics" class="nav-link">Metrics</a>
+                <a href="#implementation-guidelines" class="nav-link">Guidelines</a>
+                <a href="#technical-requirements" class="nav-link">Requirements</a>
+            </div>
+        </div>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#system-overview">System Overview</a></li>
+                <li><a href="#mathematical-framework">Mathematical Framework</a></li>
+                <li><a href="#system-architecture">System Architecture</a></li>
+                <li><a href="#implementation-workflow">Implementation Workflow</a></li>
+                <li><a href="#machine-learning-models">Machine Learning Models</a></li>
+                <li><a href="#optimization-engine">Optimization Engine</a></li>
+                <li><a href="#risk-assessment">Risk Assessment & Analytics</a></li>
+                <li><a href="#performance-metrics">Performance Metrics</a></li>
+                <li><a href="#implementation-guidelines">Implementation Guidelines</a></li>
+                <li><a href="#technical-requirements">Technical Requirements</a></li>
+            </ol>
+        </div>
+
+        <div class="content">
+            <div id="system-overview" class="section">
+                <h1>1. System Overview</h1>
+                
+                <h3>1.1 Integrated VUCA-MPC System</h3>
+                <p>The system integrates two core analytical frameworks:</p>
+                <ul>
+                    <li><strong>VUCA Analysis</strong>: Volatility, Uncertainty, Complexity, and Ambiguity assessment</li>
+                    <li><strong>Middle Power Capabilities (MPC)</strong>: Economic, Political, Security, and Diplomatic capability scoring</li>
+                </ul>
+
+                <h3>1.2 System State Vector</h3>
+                <p>The complete system state is represented by:</p>
+                <div class="math">
+                    $$\mathbf{X}_t = \begin{bmatrix} V_t \\ U_t \\ C_t \\ A_t \\ E_t \\ P_t \\ S_t \\ D_t \end{bmatrix}$$
+                </div>
+                <p>Where:</p>
+                <ul>
+                    <li>$V_t, U_t, C_t, A_t$ = VUCA components at time $t$</li>
+                    <li>$E_t, P_t, S_t, D_t$ = MPC components at time $t$</li>
+                </ul>
+
+                <h3>1.3 Performance Objective Function</h3>
+                <div class="math">
+                    $$J = \int_{0}^{T} [\mathbf{X}^T(t) \mathbf{Q} \mathbf{X}(t) + \mathbf{u}^T(t) \mathbf{R} \mathbf{u}(t)] dt$$
+                </div>
+                <p>Where:</p>
+                <ul>
+                    <li>$\mathbf{Q}$ = State cost matrix</li>
+                    <li>$\mathbf{R}$ = Control cost matrix</li>
+                    <li>$T$ = Time horizon</li>
+                </ul>
+            </div>
+
+            <div id="mathematical-framework" class="section">
+                <h1>2. Mathematical Framework</h1>
+                
+                <h3>2.1 VUCA Index Mathematical Framework</h3>
+                
+                <h4>2.1.1 Volatility Index (V)</h4>
+                <div class="math">
+                    $$V = \frac{\sigma}{\mu} \times 100\%$$
+                </div>
+                <p>Where:</p>
+                <ul>
+                    <li>$\sigma$ = Standard deviation of the time series</li>
+                    <li>$\mu$ = Mean of the time series</li>
+                </ul>
+                
+                <div class="info-box">
+                    <strong>Implementation:</strong>
+                    <pre><code>def calculate_volatility_index(time_series):
+    mean = np.mean(time_series)
+    std = np.std(time_series)
+    volatility_index = (std / mean) * 100 if mean != 0 else 0
+    return volatility_index</code></pre>
+                </div>
+
+                <h4>2.1.2 Uncertainty Index (U)</h4>
+                <div class="math">
+                    $$U = -\sum_{i=1}^{n} p_i \log_2(p_i)$$
+                </div>
+                <p>Where:</p>
+                <ul>
+                    <li>$p_i$ = Probability of event $i$ occurring</li>
+                    <li>$\log_2$ = Binary logarithm</li>
+                    <li>$n$ = Number of possible events</li>
+                </ul>
+
+                <h4>2.1.3 Complexity Index (C)</h4>
+                <div class="math">
+                    $$C = \frac{\log_2(N)}{L}$$
+                </div>
+                <p>Where:</p>
+                <ul>
+                    <li>$N$ = Number of distinct elements or states</li>
+                    <li>$L$ = Average length of patterns or sequences</li>
+                </ul>
+
+                <h4>2.1.4 Ambiguity Index (A)</h4>
+                <div class="math">
+                    $$A = \frac{\sum_{i=1}^{n} u_i \log(u_i)}{\log(n)}$$
+                </div>
+                <p>Where:</p>
+                <ul>
+                    <li>$u_i$ = Uncertainty level for factor $i$</li>
+                    <li>$n$ = Number of factors considered</li>
+                </ul>
+
+                <h4>2.1.5 VUCA Composite Index</h4>
+                <div class="math">
+                    $$VUCA_{composite} = \sum_{i=1}^{4} w_i \cdot VUCA_i$$
+                </div>
+                <p>Where:</p>
+                <ul>
+                    <li>$w_i$ = Weight for component $i$ ($\sum_{i=1}^{4} w_i = 1$)</li>
+                    <li>$VUCA_i$ = Normalized value of component $i$</li>
+                </ul>
+                
+                <div class="highlight">
+                    <strong>Default Weights:</strong>
+                    $$\mathbf{w} = [0.25, 0.25, 0.25, 0.25]^T$$
+                </div>
+
+                <h3>2.2 Middle Power Capability (MPC) Mathematical Framework</h3>
+                
+                <h4>2.2.1 Economic Capability Score (E)</h4>
+                <div class="math">
+                    $$E = \frac{\sum_{i=1}^{k} \alpha_i \cdot E_i}{\sum_{i=1}^{k} \alpha_i}$$
+                </div>
+                <p>Where:</p>
+                <ul>
+                    <li>$\alpha_i$ = Weight for economic indicator $i$</li>
+                    <li>$E_i$ = Normalized value of economic indicator $i$</li>
+                </ul>
+                
+                <div class="info-box">
+                    <strong>Economic Indicators:</strong>
+                    <ul>
+                        <li>GDP per capita</li>
+                        <li>Trade volume</li>
+                        <li>Foreign Direct Investment (FDI)</li>
+                        <li>Economic growth rate</li>
+                    </ul>
+                </div>
+
+                <h4>2.2.2 Political Capability Score (P)</h4>
+                <div class="math">
+                    $$P = \frac{\sum_{i=1}^{k} \beta_i \cdot P_i}{\sum_{i=1}^{k} \beta_i}$$
+                </div>
+                
+                <div class="info-box">
+                    <strong>Political Indicators:</strong>
+                    <ul>
+                        <li>Political stability index</li>
+                        <li>Rule of law index</li>
+                        <li>Corruption perception index</li>
+                        <li>Democracy index</li>
+                    </ul>
+                </div>
+
+                <h4>2.2.3 Security Capability Score (S)</h4>
+                <div class="math">
+                    $$S = \frac{\sum_{i=1}^{k} \gamma_i \cdot S_i}{\sum_{i=1}^{k} \gamma_i}$$
+                </div>
+                
+                <div class="info-box">
+                    <strong>Security Indicators:</strong>
+                    <ul>
+                        <li>Military spending</li>
+                        <li>Alliance strength</li>
+                        <li>Border security index</li>
+                        <li>Cybersecurity index</li>
+                    </ul>
+                </div>
+
+                <h4>2.2.4 Diplomatic Capability Score (D)</h4>
+                <div class="math">
+                    $$D = \frac{\sum_{i=1}^{k} \delta_i \cdot D_i}{\sum_{i=1}^{k} \delta_i}$$
+                </div>
+                
+                <div class="info-box">
+                    <strong>Diplomatic Indicators:</strong>
+                    <ul>
+                        <li>Number of embassies</li>
+                        <li>Treaty participation</li>
+                        <li>International organization membership</li>
+                        <li>Diplomatic network quality</li>
+                    </ul>
+                </div>
+
+                <h4>2.2.5 MPC Composite Score</h4>
+                <div class="math">
+                    $$MPC = \alpha \cdot E + \beta \cdot P + \gamma \cdot S + \delta \cdot D$$
+                </div>
+                
+                <div class="highlight">
+                    <strong>Default Weights:</strong>
+                    $$\mathbf{w}_{MPC} = [0.30, 0.25, 0.25, 0.20]^T$$
+                </div>
+            </div>
+
+            <div id="system-architecture" class="section">
+                <h1>3. System Architecture</h1>
+                
+                <h3>3.1 Overview Sistem</h3>
+                <div class="mermaid">
+                    graph TB
+                        subgraph "INPUT LAYER"
+                            A1[Data Geopolitik]
+                            A2[Data Ekonomi]
+                            A3[Data Politik & Keamanan]
+                            A4[Data Historis]
+                            A5[Data Diplomatik]
+                        end
+                        
+                        subgraph "PROCESSING LAYER"
+                            B1[Data Preprocessing]
+                            B2[VUCA Index Calculation]
+                            B3[Middle Power Capability Analysis]
+                            B4[Machine Learning Models]
+                            B5[Time Series Analysis]
+                            B6[Optimization Engine]
+                        end
+                        
+                        subgraph "OUTPUT LAYER"
+                            C1[VUCA Composite Index]
+                            C2[MPC Score]
+                            C3[Predictive Analytics]
+                            C4[Resource Allocation Recommendations]
+                            C5[Risk Assessment]
+                            C6[Policy Recommendations]
+                        end
+                        
+                        A1 --> B1
+                        A2 --> B1
+                        A3 --> B1
+                        A4 --> B1
+                        A5 --> B1
+                        
+                        B1 --> B2
+                        B1 --> B3
+                        B1 --> B4
+                        B1 --> B5
+                        B1 --> B6
+                        
+                        B2 --> C1
+                        B3 --> C2
+                        B4 --> C3
+                        B5 --> C3
+                        B6 --> C4
+                        B2 --> C5
+                        B3 --> C6
+                </div>
+
+                <h3>3.2 Data Flow Architecture</h3>
+                <div class="mermaid">
+                    flowchart LR
+                        subgraph "INPUT STREAMS"
+                            I1[Structured Data]
+                            I2[Semi-structured Data]
+                            I3[Unstructured Data]
+                        end
+                        
+                        subgraph "PROCESSING PIPELINE"
+                            P1[Data Ingestion]
+                            P2[Data Transformation]
+                            P3[Feature Engineering]
+                            P4[Model Training]
+                            P5[Prediction]
+                        end
+                        
+                        subgraph "OUTPUT STREAMS"
+                            O1[Real-time Alerts]
+                            O2[Periodic Reports]
+                            O3[Interactive Dashboards]
+                            O4[API Endpoints]
+                        end
+                        
+                        I1 --> P1
+                        I2 --> P1
+                        I3 --> P1
+                        
+                        P1 --> P2 --> P3 --> P4 --> P5
+                        
+                        P5 --> O1
+                        P5 --> O2
+                        P5 --> O3
+                        P5 --> O4
+                </div>
+            </div>
+
+            <div id="implementation-workflow" class="section">
+                <h1>4. Implementation Workflow</h1>
+                
+                <h3>4.1 Workflow Penelitian Lengkap</h3>
+                <div class="mermaid">
+                    flowchart TD
+                        Start([Mulai Penelitian]) --> DataCollection[Pengumpulan Data]
+                        
+                        subgraph "PHASE 1: DATA PREPARATION"
+                            DataCollection --> DataValidation[Validasi Data]
+                            DataValidation --> DataCleaning[Pembersihan Data]
+                            DataCleaning --> DataNormalization[Normalisasi & Standarisasi]
+                            DataNormalization --> EDA[Analisis Eksploratif Data]
+                        end
+                        
+                        subgraph "PHASE 2: MODEL DEVELOPMENT"
+                            EDA --> VUCAModel[Pengembangan Model VUCA]
+                            EDA --> MPCModel[Pengembangan Model MPC]
+                            VUCAModel --> ModelIntegration[Integrasi Model]
+                            MPCModel --> ModelIntegration
+                        end
+                        
+                        subgraph "PHASE 3: VALIDATION & TESTING"
+                            ModelIntegration --> CrossValidation[Cross-Validation]
+                            CrossValidation --> OutOfSample[Testing Out-of-Sample]
+                            OutOfSample --> PerformanceEval[Evaluasi Performa]
+                            PerformanceEval --> SensitivityAnalysis[Analisis Sensitivitas]
+                        end
+                        
+                        subgraph "PHASE 4: ANALYSIS & OUTPUT"
+                            SensitivityAnalysis --> ResultsAnalysis[Analisis Hasil]
+                            ResultsAnalysis --> PolicyRecommendations[Rekomendasi Kebijakan]
+                            PolicyRecommendations --> FinalReport[Laporan Akhir]
+                        end
+                        
+                        FinalReport --> End([Selesai])
+                </div>
+
+                <h3>4.2 Proses Perhitungan VUCA Index</h3>
+                <div class="mermaid">
+                    flowchart LR
+                        subgraph "INPUT DATA"
+                            D1[Time Series Data]
+                            D2[Event Data]
+                            D3[Policy Changes]
+                            D4[Economic Indicators]
+                        end
+                        
+                        subgraph "VUCA COMPONENTS"
+                            V1[Volatility Index<br/>V = sigma/mu * 100%]
+                            V2[Uncertainty Index<br/>U = -sum pi log2 pi]
+                            V3[Complexity Index<br/>C = log2 N / L]
+                            V4[Ambiguity Index<br/>A = sum ui log ui / log n]
+                        end
+                        
+                        subgraph "AGGREGATION"
+                            W1[w1 * V1]
+                            W2[w2 * V2]
+                            W3[w3 * V3]
+                            W4[w4 * V4]
+                            VUCA_Composite[VUCA Composite = sum wi * VUCAi]
+                        end
+                        
+                        D1 --> V1
+                        D2 --> V2
+                        D3 --> V3
+                        D4 --> V4
+                        
+                        V1 --> W1
+                        V2 --> W2
+                        V3 --> W3
+                        V4 --> W4
+                        
+                        W1 --> VUCA_Composite
+                        W2 --> VUCA_Composite
+                        W3 --> VUCA_Composite
+                        W4 --> VUCA_Composite
+                </div>
+
+                <h3>4.3 Proses Perhitungan Middle Power Capability Index</h3>
+                <div class="mermaid">
+                    flowchart TD
+                        subgraph "CAPABILITY INPUTS"
+                            E1[Economic Data<br/>GDP, Trade, FDI]
+                            E2[Political Data<br/>Stability, Governance]
+                            E3[Security Data<br/>Military, Alliances]
+                            E4[Diplomatic Data<br/>Embassies, Treaties]
+                        end
+                        
+                        subgraph "INDIVIDUAL SCORES"
+                            S1[Economic Score<br/>E]
+                            S2[Political Score<br/>P]
+                            S3[Security Score<br/>S]
+                            S4[Diplomatic Score<br/>D]
+                        end
+                        
+                        subgraph "WEIGHTED CALCULATION"
+                            W1[alpha * E]
+                            W2[beta * P]
+                            W3[gamma * S]
+                            W4[delta * D]
+                            MPC[MPC = alpha*E + beta*P + gamma*S + delta*D]
+                        end
+                        
+                        E1 --> S1
+                        E2 --> S2
+                        E3 --> S3
+                        E4 --> S4
+                        
+                        S1 --> W1
+                        S2 --> W2
+                        S3 --> W3
+                        S4 --> W4
+                        
+                        W1 --> MPC
+                        W2 --> MPC
+                        W3 --> MPC
+                        W4 --> MPC
+                </div>
+            </div>
+
+            <div id="machine-learning-models" class="section">
+                <h1>5. Machine Learning Models</h1>
+                
+                <h3>5.1 Machine Learning Pipeline</h3>
+                <div class="mermaid">
+                    flowchart TD
+                        subgraph "DATA PREPARATION"
+                            ML1[Feature Engineering]
+                            ML2[Data Splitting<br/>Train/Test/Validation]
+                            ML3[Data Scaling]
+                        end
+                        
+                        subgraph "MODEL TRAINING"
+                            ML4[Random Forest<br/>Ensemble Probability]
+                            ML5[Neural Network<br/>Multi-layer Perceptron]
+                            ML6[Time Series Models<br/>ARIMA, VAR]
+                        end
+                        
+                        subgraph "MODEL EVALUATION"
+                            ML7[Cross-Validation]
+                            ML8[Performance Metrics]
+                            ML9[Model Selection]
+                        end
+                        
+                        subgraph "PREDICTION & OUTPUT"
+                            ML10[VUCA Level Classification]
+                            ML11[MPC Score Prediction]
+                            ML12[Risk Assessment]
+                        end
+                        
+                        ML1 --> ML2 --> ML3
+                        ML3 --> ML4
+                        ML3 --> ML5
+                        ML3 --> ML6
+                        
+                        ML4 --> ML7
+                        ML5 --> ML7
+                        ML6 --> ML7
+                        
+                        ML7 --> ML8 --> ML9
+                        ML9 --> ML10
+                        ML9 --> ML11
+                        ML9 --> ML12
+                </div>
+
+                <h3>5.2 Random Forest for VUCA Classification</h3>
+                <p><strong>Model:</strong> Random Forest Classifier</p>
+                
+                <p><strong>Mathematical Foundation:</strong></p>
+                <div class="math">
+                    $$\hat{y} = \text{mode}\{h_1(x), h_2(x), \ldots, h_T(x)\}$$
+                </div>
+                
+                <p><strong>Ensemble Probability:</strong></p>
+                <div class="math">
+                    $$P(y = c|x) = \frac{1}{T}\sum_{t=1}^{T} \mathbb{I}[h_t(x) = c]$$
+                </div>
+                
+                <div class="info-box">
+                    <strong>Implementation:</strong>
+                    <pre><code>def train_vuca_classifier(X_train, y_train, hyperparameters=None):
+    from sklearn.ensemble import RandomForestClassifier
+    
+    if hyperparameters is None:
+        hyperparameters = {
+            'n_estimators': 100,
+            'max_depth': None,
+            'min_samples_split': 2,
+            'min_samples_leaf': 1,
+            'random_state': 42
+        }
+    
+    rf_classifier = RandomForestClassifier(**hyperparameters)
+    rf_classifier.fit(X_train, y_train)
+    
+    return rf_classifier</code></pre>
+                </div>
+
+                <h3>5.3 Neural Network for MPC Prediction</h3>
+                <p><strong>Model:</strong> Multi-layer Perceptron (MLP)</p>
+                
+                <p><strong>Mathematical Foundation:</strong></p>
+                <div class="math">
+                    $$f(x) = W_L \cdot \sigma(W_{L-1} \cdot \sigma(\ldots \sigma(W_1 \cdot x + b_1) \ldots) + b_{L-1}) + b_L$$
+                </div>
+                
+                <div class="info-box">
+                    <strong>Implementation:</strong>
+                    <pre><code>def build_mpc_neural_network(input_dim, hidden_layers=[64, 32, 16]):
+    from tensorflow.keras.models import Sequential
+    from tensorflow.keras.layers import Dense, Dropout
+    
+    model = Sequential()
+    
+    # Input layer
+    model.add(Dense(hidden_layers[0], input_dim=input_dim, activation='relu'))
+    model.add(Dropout(0.2))
+    
+    # Hidden layers
+    for units in hidden_layers[1:]:
+        model.add(Dense(units, activation='relu'))
+        model.add(Dropout(0.2))
+    
+    # Output layer
+    model.add(Dense(1, activation='linear'))
+    
+    model.compile(optimizer='adam', loss='mse', metrics=['mae'])
+    return model</code></pre>
+                </div>
+
+                <h3>5.4 Time Series Models</h3>
+                
+                <h4>5.4.1 ARIMA Model</h4>
+                <p><strong>Formula:</strong> ARIMA(p,d,q)</p>
+                
+                <p><strong>Mathematical Formulation:</strong></p>
+                <div class="math">
+                    $$\phi(B)(1-B)^d X_t = \theta(B) \epsilon_t$$
+                </div>
+                
+                <div class="info-box">
+                    <strong>Implementation:</strong>
+                    <pre><code>def fit_arima_model(time_series, order=(1,1,1)):
+    from statsmodels.tsa.arima.model import ARIMA
+    
+    model = ARIMA(time_series, order=order)
+    fitted_model = model.fit()
+    
+    return fitted_model</code></pre>
+                </div>
+
+                <h4>5.4.2 VAR Model</h4>
+                <p><strong>Formula:</strong> VAR(p)</p>
+                
+                <p><strong>Mathematical Formulation:</strong></p>
+                <div class="math">
+                    $$\mathbf{X}_t = \mathbf{c} + \sum_{i=1}^{p} \mathbf{A}_i \mathbf{X}_{t-i} + \boldsymbol{\epsilon}_t$$
+                </div>
+                
+                <div class="info-box">
+                    <strong>Implementation:</strong>
+                    <pre><code>def fit_var_model(time_series, maxlags=5):
+    from statsmodels.tsa.vector_ar.var_model import VAR
+    
+    model = VAR(time_series)
+    results = model.select_order(maxlags)
+    fitted_model = model.fit(maxlags=results.aic)
+    
+    return fitted_model</code></pre>
+                </div>
+            </div>
+
+            <div id="optimization-engine" class="section">
+                <h1>6. Optimization Engine</h1>
+                
+                <h3>6.1 Linear Programming Model</h3>
+                
+                <p><strong>Mathematical Formulation:</strong></p>
+                <div class="math">
+                    $$\max_{\mathbf{x}} \quad f(\mathbf{x}) = \mathbf{w}^T \mathbf{x}$$
+                </div>
+                
+                <p><strong>Subject to:</strong></p>
+                <div class="math">
+                    $$\mathbf{A} \mathbf{x} \leq \mathbf{b}$$
+                    $$\mathbf{x} \geq \mathbf{0}$$
+                </div>
+                
+                <div class="info-box">
+                    <strong>Implementation:</strong>
+                    <pre><code>def optimize_resource_allocation(objective_weights, costs, budget, constraints_matrix, constraints_rhs):
+    from scipy.optimize import linprog
+    
+    # Minimize negative objective (equivalent to maximizing)
+    objective = [-w for w in objective_weights]
+    
+    # Solve linear programming problem
+    result = linprog(
+        c=objective,
+        A_ub=constraints_matrix,
+        b_ub=constraints_rhs,
+        bounds=[(0, None)] * len(objective_weights),
+        method='highs'
+    )
+    
+    return result</code></pre>
+                </div>
+
+                <h3>6.2 Optimization Engine Process</h3>
+                <div class="mermaid">
+                    flowchart LR
+                        subgraph "CONSTRAINTS INPUT"
+                            C1["Budget Constraint<br/>sum ci*xi <= B"]
+                            C2["Resource Limits<br/>xi >= 0 for all i"]
+                            C3["Policy Constraints"]
+                        end
+                        
+                        subgraph "OPTIMIZATION MODEL"
+                            O1["Objective Function<br/>max f(x) = sum wi*xi"]
+                            O2["Constraint Solver"]
+                            O3["Optimal Solution"]
+                        end
+                        
+                        subgraph "OUTPUT RECOMMENDATIONS"
+                            R1["Resource Allocation"]
+                            R2["Capability Development Priority"]
+                            R3["Investment Strategy"]
+                        end
+                        
+                        C1 --> O1
+                        C2 --> O1
+                        C3 --> O1
+                        
+                        O1 --> O2 --> O3
+                        O3 --> R1
+                        O3 --> R2
+                        O3 --> R3
+                </div>
+            </div>
+
+            <div id="risk-assessment" class="section">
+                <h1>7. Risk Assessment & Analytics</h1>
+                
+                <h3>7.1 Bayesian Network Structure</h3>
+                <div class="mermaid">
+                    graph TD
+                        subgraph "ROOT NODES"
+                            BN1[Economic Conditions]
+                            BN2[Political Stability]
+                            BN3[Security Environment]
+                        end
+                        
+                        subgraph "INTERMEDIATE NODES"
+                            BN4[VUCA Level]
+                            BN5[Regional Tensions]
+                            BN6[Alliance Strength]
+                        end
+                        
+                        subgraph "TARGET NODES"
+                            BN7[Middle Power Capability]
+                            BN8[Diplomatic Success]
+                            BN9[Risk Level]
+                        end
+                        
+                        BN1 --> BN4
+                        BN2 --> BN4
+                        BN3 --> BN4
+                        
+                        BN1 --> BN5
+                        BN2 --> BN5
+                        BN3 --> BN6
+                        
+                        BN4 --> BN7
+                        BN5 --> BN7
+                        BN6 --> BN7
+                        
+                        BN7 --> BN8
+                        BN7 --> BN9
+                </div>
+
+                <h3>7.2 Monte Carlo Simulation Process</h3>
+                <div class="mermaid">
+                    flowchart TD
+                        subgraph "SCENARIO GENERATION"
+                            MC1[Parameter Sampling]
+                            MC2[Distribution Functions]
+                            MC3[Random Number Generation]
+                        end
+                        
+                        subgraph "SIMULATION EXECUTION"
+                            MC4[Model Execution]
+                            MC5[Result Collection]
+                            MC6[Statistical Analysis]
+                        end
+                        
+                        subgraph "OUTPUT ANALYSIS"
+                            MC7[Confidence Intervals]
+                            MC8[Risk Assessment]
+                            MC9[Sensitivity Analysis]
+                        end
+                        
+                        MC1 --> MC2 --> MC3
+                        MC3 --> MC4 --> MC5 --> MC6
+                        MC6 --> MC7
+                        MC6 --> MC8
+                        MC6 --> MC9
+                </div>
+
+                <h3>7.3 Value at Risk (VaR)</h3>
+                
+                <p><strong>Mathematical Definition:</strong></p>
+                <div class="math">
+                    $$VaR(\alpha) = F^{-1}(\alpha)$$
+                </div>
+                
+                <p><strong>Parametric VaR (Normal Distribution):</strong></p>
+                <div class="math">
+                    $$VaR(\alpha) = \mu + \sigma \cdot \Phi^{-1}(\alpha)$$
+                </div>
+                
+                <div class="info-box">
+                    <strong>Implementation:</strong>
+                    <pre><code>def calculate_var(data, confidence_level=0.05):
+    import numpy as np
+    var = np.percentile(data, confidence_level * 100)
+    return var</code></pre>
+                </div>
+
+                <h3>7.4 Expected Shortfall (ES)</h3>
+                
+                <p><strong>Mathematical Definition:</strong></p>
+                <div class="math">
+                    $$ES(\alpha) = E[X|X \leq VaR(\alpha)]$$
+                </div>
+                
+                <p><strong>Empirical ES:</strong></p>
+                <div class="math">
+                    $$ES(\alpha) = \frac{1}{n\alpha} \sum_{i=1}^{n} x_i \cdot \mathbb{I}[x_i \leq VaR(\alpha)]$$
+                </div>
+            </div>
+
+            <div id="performance-metrics" class="section">
+                <h1>8. Performance Metrics</h1>
+                
+                <h3>8.1 Classification Metrics</h3>
+                
+                <p><strong>Confusion Matrix:</strong></p>
+                <div class="math">
+                    $$\mathbf{C} = \begin{bmatrix} TP & FP \\ FN & TN \end{bmatrix}$$
+                </div>
+                
+                <p><strong>Accuracy:</strong></p>
+                <div class="math">
+                    $$Acc = \frac{TP + TN}{TP + TN + FP + FN}$$
+                </div>
+                
+                <p><strong>F1-Score:</strong></p>
+                <div class="math">
+                    $$F1 = 2 \cdot \frac{Prec \cdot Rec}{Prec + Rec}$$
+                </div>
+                
+                <div class="info-box">
+                    <strong>Implementation:</strong>
+                    <pre><code>def calculate_classification_metrics(y_true, y_pred):
+    from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+    
+    metrics = {
+        'accuracy': accuracy_score(y_true, y_pred),
+        'precision': precision_score(y_true, y_pred, average='weighted'),
+        'recall': recall_score(y_true, y_pred, average='weighted'),
+        'f1_score': f1_score(y_true, y_pred, average='weighted')
+    }
+    
+    return metrics</code></pre>
+                </div>
+
+                <h3>8.2 Regression Metrics</h3>
+                
+                <p><strong>Mean Squared Error (MSE):</strong></p>
+                <div class="math">
+                    $$MSE = \frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2$$
+                </div>
+                
+                <p><strong>R² Score:</strong></p>
+                <div class="math">
+                    $$R^2 = 1 - \frac{\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}{\sum_{i=1}^{n}(y_i - \bar{y})^2}$$
+                </div>
+                
+                <div class="info-box">
+                    <strong>Implementation:</strong>
+                    <pre><code>def calculate_regression_metrics(y_true, y_pred):
+    from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+    import numpy as np
+    
+    mse = mean_squared_error(y_true, y_pred)
+    rmse = np.sqrt(mse)
+    mae = mean_absolute_error(y_true, y_pred)
+    r2 = r2_score(y_true, y_pred)
+    
+    metrics = {
+        'mse': mse,
+        'rmse': rmse,
+        'mae': mae,
+        'r2': r2
+    }
+    
+    return metrics</code></pre>
+                </div>
+
+                <h3>8.3 Cross-Validation</h3>
+                
+                <p><strong>K-Fold Cross-Validation:</strong></p>
+                <div class="math">
+                    $$CV_{score} = \frac{1}{k}\sum_{i=1}^{k} Score_i$$
+                </div>
+                
+                <div class="info-box">
+                    <strong>Implementation:</strong>
+                    <pre><code>def perform_cross_validation(model, X, y, cv=5, scoring='accuracy'):
+    from sklearn.model_selection import cross_val_score
+    
+    cv_scores = cross_val_score(model, X, y, cv=cv, scoring=scoring)
+    
+    return {
+        'scores': cv_scores,
+        'mean': cv_scores.mean(),
+        'std': cv_scores.std()
+    }</code></pre>
+                </div>
+            </div>
+
+            <div id="implementation-guidelines" class="section">
+                <h1>9. Implementation Guidelines</h1>
+                
+                <h3>9.1 Data Requirements</h3>
+                <ul>
+                    <li><strong>Minimum Data</strong>: 5 years of historical data for time series analysis</li>
+                    <li><strong>Sample Size</strong>: At least 1000 samples for machine learning models</li>
+                    <li><strong>Data Quality</strong>: Score > 0.8 for reliable results</li>
+                </ul>
+
+                <h3>9.2 Model Validation</h3>
+                <ul>
+                    <li><strong>Data Split</strong>: 70% training, 15% validation, 15% testing</li>
+                    <li><strong>Cross-Validation</strong>: k=5 or k=10 folds</li>
+                    <li><strong>Testing</strong>: Out-of-sample data validation</li>
+                </ul>
+
+                <h3>9.3 Performance Thresholds</h3>
+                <ul>
+                    <li><strong>Classification</strong>: Accuracy > 0.75</li>
+                    <li><strong>Regression</strong>: R² > 0.6</li>
+                    <li><strong>Forecasting</strong>: MAPE < 20%</li>
+                </ul>
+
+                <h3>9.4 Update Frequency</h3>
+                <ul>
+                    <li><strong>VUCA Index</strong>: Daily updates</li>
+                    <li><strong>MPC Score</strong>: Weekly updates</li>
+                    <li><strong>Model Retraining</strong>: Monthly</li>
+                    <li><strong>System Review</strong>: Quarterly</li>
+                </ul>
+
+                <h3>9.5 Mathematical Validation</h3>
+                <ul>
+                    <li>Verify all mathematical constraints are satisfied</li>
+                    <li>Ensure numerical stability in computations</li>
+                    <li>Perform sensitivity analysis on key parameters</li>
+                    <li>Validate against theoretical bounds</li>
+                </ul>
+            </div>
+
+            <div id="technical-requirements" class="section">
+                <h1>10. Technical Requirements</h1>
+                
+                <h3>10.1 Technology Stack</h3>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Technologies</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Data Processing</strong></td>
+                                <td>Python, Pandas, NumPy</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Machine Learning</strong></td>
+                                <td>Scikit-learn, TensorFlow, PyTorch</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Visualization</strong></td>
+                                <td>Matplotlib, Plotly, Tableau</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Database</strong></td>
+                                <td>PostgreSQL, MongoDB</td>
+                            </tr>
+                            <tr>
+                                <td><strong>API & Deployment</strong></td>
+                                <td>FastAPI, Flask, Docker, Kubernetes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>10.2 System Integration</h3>
+                <div class="mermaid">
+                    graph TB
+                        subgraph "DATA SOURCES"
+                            DS1[Geopolitical Databases]
+                            DS2[Economic Indicators]
+                            DS3[Security Reports]
+                            DS4[Diplomatic Records]
+                        end
+                        
+                        subgraph "CORE PROCESSING"
+                            CP1[VUCA Engine]
+                            CP2[MPC Calculator]
+                            CP3[ML Predictor]
+                            CP4[Optimizer]
+                        end
+                        
+                        subgraph "ANALYTICS LAYER"
+                            AL1[Real-time Monitoring]
+                            AL2[Trend Analysis]
+                            AL3[Scenario Planning]
+                            AL4[Risk Assessment]
+                        end
+                        
+                        subgraph "OUTPUT DELIVERABLES"
+                            OD1[Executive Dashboard]
+                            OD2[Policy Briefs]
+                            OD3[Strategic Recommendations]
+                            OD4[Risk Alerts]
+                        end
+                        
+                        DS1 --> CP1
+                        DS2 --> CP2
+                        DS3 --> CP3
+                        DS4 --> CP4
+                        
+                        CP1 --> AL1
+                        CP2 --> AL2
+                        CP3 --> AL3
+                        CP4 --> AL4
+                        
+                        AL1 --> OD1
+                        AL2 --> OD2
+                        AL3 --> OD3
+                        AL4 --> OD4
+                </div>
+
+                <h3>10.3 Monitoring and Maintenance</h3>
+                
+                <h4>Real-time Monitoring:</h4>
+                <ul>
+                    <li>Dashboard untuk monitoring performa model</li>
+                    <li>Automated testing dan validation pipeline</li>
+                    <li>Performance metrics tracking</li>
+                    <li>Alert system untuk anomaly detection</li>
+                </ul>
+
+                <h4>Maintenance Schedule:</h4>
+                <ul>
+                    <li>Regular model retraining dan update</li>
+                    <li>Performance review dan optimization</li>
+                    <li>System health monitoring</li>
+                    <li>Backup dan recovery procedures</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h1>Mathematical Summary and Integration</h1>
+                
+                <h3>Complete System Mathematical Framework</h3>
+                
+                <p><strong>Integrated VUCA-MPC System:</strong></p>
+                <div class="math">
+                    $$\mathbf{S} = \begin{bmatrix} VUCA_{composite} \\ MPC_{score} \end{bmatrix} = \begin{bmatrix} \sum_{i=1}^{4} w_i \cdot VUCA_i \\ \alpha \cdot E + \beta \cdot P + \gamma \cdot S + \delta \cdot D \end{bmatrix}$$
+                </div>
+                
+                <p><strong>State Transition Equation:</strong></p>
+                <div class="math">
+                    $$\mathbf{X}_{t+1} = \mathbf{A} \mathbf{X}_t + \mathbf{B} \mathbf{u}_t + \boldsymbol{\epsilon}_t$$
+                </div>
+                
+                <p><strong>Statistical Inference Framework:</strong></p>
+                <div class="math">
+                    $$P(\boldsymbol{\theta}|\mathbf{D}) \propto P(\mathbf{D}|\boldsymbol{\theta}) \cdot P(\boldsymbol{\theta})$$
+                </div>
+                
+                <p><strong>Uncertainty Quantification:</strong></p>
+                <div class="math">
+                    $$U_{total} = U_{aleatory} + U_{epistemic}$$
+                </div>
+            </div>
+
+            <div class="section">
+                <h1>References and Further Reading</h1>
+                
+                <h3>Mathematical Foundations</h3>
+                <ul>
+                    <li><strong>Linear Algebra</strong>: Strang, G. (2006). Linear Algebra and Its Applications</li>
+                    <li><strong>Optimization</strong>: Boyd, S. & Vandenberghe, L. (2004). Convex Optimization</li>
+                    <li><strong>Time Series</strong>: Hamilton, J.D. (1994). Time Series Analysis</li>
+                    <li><strong>Machine Learning</strong>: Bishop, C.M. (2006). Pattern Recognition and Machine Learning</li>
+                </ul>
+
+                <h3>Statistical Methods</h3>
+                <ul>
+                    <li><strong>Bayesian Statistics</strong>: Gelman, A. et al. (2013). Bayesian Data Analysis</li>
+                    <li><strong>Risk Management</strong>: McNeil, A.J. et al. (2015). Quantitative Risk Management</li>
+                    <li><strong>Forecasting</strong>: Hyndman, R.J. & Athanasopoulos, G. (2018). Forecasting: Principles and Practice</li>
+                </ul>
+            </div>
+
+            <div class="success-box">
+                <p><strong>Note:</strong> This comprehensive SOLUTION.md document provides the complete integration of design architecture and mathematical models for implementing the VUCA and Middle Power Capabilities analysis system. It includes all necessary mathematical formulations, system architecture diagrams, implementation guidelines, and technical requirements for successful deployment.</p>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+    <script>
+        // Back to top functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active state to navigation links
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Initialize Mermaid diagrams
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            },
+            graph: {
+                useMaxWidth: true,
+                htmlLabels: true
+            }
+        });
+    </script>
+</body>
+</html>
