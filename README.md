@@ -62,6 +62,43 @@ Repository ini berisi analisis komprehensif disertasi "Indonesia di Era VUCA, Pr
 - Optimal Resource Allocation
 - Predictive Diplomacy Components Performance
 
+### 6. Optimization Engine Process
+
+```mermaid
+flowchart LR
+    subgraph "CONSTRAINTS INPUT"
+        C1[Budget Constraint<br/>Sum ci*xi <= B]
+        C2[Resource Limits<br/>xi >= 0 for all i]
+        C3[Policy Constraints]
+    end
+    
+    subgraph "OPTIMIZATION MODEL"
+        O1[Objective Function<br/>max f(x) = Sum wi*xi]
+        O2[Constraint Solver]
+        O3[Optimal Solution]
+    end
+    
+    subgraph "OUTPUT RECOMMENDATIONS"
+        R1[Resource Allocation]
+        R2[Capability Development Priority]
+        R3[Investment Strategy]
+    end
+    
+    C1 --> O1
+    C2 --> O1
+    C3 --> O1
+    
+    O1 --> O2 --> O3
+    O3 --> R1
+    O3 --> R2
+    O3 --> R3
+    
+    style O3 fill:#4caf50
+    style R1 fill:#2196f3
+    style R2 fill:#ff9800
+    style R3 fill:#9c27b0
+```
+
 ## Temuan Utama
 
 ### 1. Karakteristik Era VUCA
