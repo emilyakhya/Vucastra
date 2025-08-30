@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLUSI TERINTEGRASI: FRAMEWORK VUCA-MPC UNTUK PREDICTIVE DIPLOMACY</title>
+    
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    
+    <!-- Mermaid.js for diagram rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            }
+        });
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 20px;
+        }
+        
+        h2 {
+            color: #34495e;
+            margin: 30px 0 20px 0;
+            font-size: 2em;
+            border-left: 5px solid #3498db;
+            padding-left: 20px;
+        }
+        
+        h3 {
+            color: #2c3e50;
+            margin: 25px 0 15px 0;
+            font-size: 1.5em;
+        }
+        
+        h4 {
+            color: #34495e;
+            margin: 20px 0 10px 0;
+            font-size: 1.3em;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .document-control {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid #3498db;
+        }
+        
+        .document-control h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .document-control ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .document-control li {
+            margin-bottom: 8px;
+            padding: 5px 0;
+        }
+        
+        .document-control strong {
+            color: #e74c3c;
+        }
+        
+        .framework-box {
+            background-color: #f8f9fa;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+        
+        .math-formula {
+            background-color: #f8f9fa;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        
+        .code-block {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .code-block pre {
+            margin: 0;
+        }
+        
+        .mermaid {
+            background-color: white;
+            border: 1px solid #bdc3c7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .toc {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .toc h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .toc li {
+            margin-bottom: 8px;
+        }
+        
+        .toc a {
+            color: #3498db;
+            text-decoration: none;
+            padding: 5px 0;
+            display: block;
+        }
+        
+        .toc a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        
+        .phase-box {
+            background-color: #e8f4fd;
+            border: 1px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .phase-box h4 {
+            color: #2980b9;
+            margin-bottom: 15px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            color: #7f8c8d;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            .framework-box {
+                font-size: 0.9em;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SOLUSI TERINTEGRASI: FRAMEWORK VUCA-MPC UNTUK PREDICTIVE DIPLOMACY</h1>
+        
+        <div class="document-control">
+            <h3>Dokumen Kontrol</h3>
+            <ul>
+                <li><strong>Versi:</strong> 2.0 (Konsolidasi)</li>
+                <li><strong>Tanggal:</strong> 2024</li>
+                <li><strong>Status:</strong> Final (Konsolidasi)</li>
+                <li><strong>Pemilik:</strong> Tim Disertasi VUCA Era Diplomacy</li>
+                <li><strong>Reviewer:</strong> Supervisor Disertasi</li>
+            </ul>
+        </div>
+
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#overview">1. Overview Solusi Terintegrasi</a></li>
+                <li><a href="#framework">2. Framework VUCA-MPC Terintegrasi</a></li>
+                <li><a href="#mathematical">3. Mathematical Framework dan Model</a></li>
+                <li><a href="#architecture">4. System Architecture dan Workflow</a></li>
+                <li><a href="#ml-models">5. Machine Learning Models dan Algorithms</a></li>
+                <li><a href="#optimization">6. Optimization Engine dan Resource Allocation</a></li>
+                <li><a href="#risk-assessment">7. Risk Assessment dan Analytics</a></li>
+                <li><a href="#performance">8. Performance Metrics dan Validation</a></li>
+                <li><a href="#roadmap">9. Implementation Roadmap dan Phases</a></li>
+                <li><a href="#technical">10. Technical Implementation dan Requirements</a></li>
+                <li><a href="#metrics">11. Success Metrics dan KPIs</a></li>
+                <li><a href="#stakeholders">12. Stakeholder Engagement</a></li>
+                <li><a href="#conclusion">13. Conclusion dan Next Steps</a></li>
+                <li><a href="#appendices">14. Appendices</a></li>
+                <li><a href="#approval">15. Approval and Sign-off</a></li>
+            </ul>
+        </div>
+
+        <section id="overview">
+            <h2>1. OVERVIEW SOLUSI TERINTEGRASI</h2>
+            
+            <h3>1.1 Masalah yang Diatasi</h3>
+            <ul>
+                <li><strong>Fragmentation:</strong> Empat dokumen terpisah tanpa integrasi yang jelas</li>
+                <li><strong>Scope Creep:</strong> Cakupan terlalu luas tanpa fokus yang koheren</li>
+                <li><strong>Methodological Disconnect:</strong> Pendekatan kualitatif dan kuantitatif tidak terintegrasi</li>
+                <li><strong>Lack of Core Framework:</strong> Tidak ada thread merah yang menghubungkan semua komponen</li>
+            </ul>
+
+            <h3>1.2 Solusi Terintegrasi</h3>
+            <p><strong>Framework VUCA-MPC</strong> yang menggabungkan:</p>
+            <ul>
+                <li><strong>VUCA Components:</strong> Volatility, Uncertainty, Complexity, Ambiguity</li>
+                <li><strong>MPC Components:</strong> Middle Power Capabilities (Economic, Political, Security, Diplomatic)</li>
+                <li><strong>Predictive Engine:</strong> Machine Learning + Bayesian Networks + Time Series Analysis</li>
+                <li><strong>Optimization Engine:</strong> Resource Allocation + Risk Assessment + Strategic Recommendations</li>
+            </ul>
+
+            <h3>1.3 Keunggulan Solusi Terintegrasi</h3>
+            <ul>
+                <li><strong>Coherence:</strong> Satu narrative yang jelas dan terintegrasi</li>
+                <li><strong>Depth:</strong> Fokus pada satu framework yang mendalam</li>
+                <li><strong>Innovation:</strong> Framework VUCA-MPC yang benar-benar baru</li>
+                <li><strong>Impact:</strong> Kontribusi yang lebih signifikan dan terukur</li>
+                <li><strong>Manageability:</strong> Scope yang lebih manageable untuk disertasi</li>
+            </ul>
+        </section>
+
+        <section id="framework">
+            <h2>2. FRAMEWORK VUCA-MPC TERINTEGRASI</h2>
+            
+            <h3>2.1 Arsitektur Framework</h3>
+            <div class="mermaid">
+                graph TB
+                    subgraph "INTEGRATED VUCA-MPC FRAMEWORK"
+                        subgraph "VUCA COMPONENTS"
+                            V1[Volatility]
+                            V2[Uncertainty]
+                            V3[Complexity]
+                            V4[Ambiguity]
+                        end
+                        
+                        subgraph "MPC COMPONENTS"
+                            M1[Economic]
+                            M2[Political]
+                            M3[Security]
+                            M4[Diplomatic]
+                        end
+                        
+                        subgraph "PREDICTIVE ENGINE"
+                            P1[Machine Learning]
+                            P2[Bayesian Networks]
+                            P3[Time Series Analysis]
+                            P4[Monte Carlo Simulation]
+                        end
+                        
+                        subgraph "OPTIMIZATION ENGINE"
+                            O1[Resource Allocation]
+                            O2[Risk Assessment]
+                            O3[Strategic Recommendations]
+                        end
+                    end
+                    
+                    V1 <--> M1
+                    V2 <--> M2
+                    V3 <--> M3
+                    V4 <--> M4
+                    
+                    V1 --> P1
+                    V2 --> P2
+                    V3 --> P3
+                    V4 --> P4
+                    
+                    P1 --> O1
+                    P2 --> O2
+                    P3 --> O3
+                    P4 --> O3
+            </div>
+
+            <h3>2.2 Komponen Utama Framework</h3>
+            
+            <h4>2.2.1 VUCA Components</h4>
+            <p>Komponen VUCA didefinisikan secara matematis sebagai:</p>
+            
+            <p><strong>Volatility Index:</strong></p>
+            <div class="math-formula">
+                $$V = \frac{\sigma}{\mu} \times 100\%$$
+            </div>
+            
+            <p><strong>Uncertainty Index:</strong></p>
+            <div class="math-formula">
+                $$U = -\sum_{i=1}^{n} p_i \log_2(p_i)$$
+            </div>
+            
+            <p><strong>Complexity Index:</strong></p>
+            <div class="math-formula">
+                $$C = \frac{\log_2(N)}{L}$$
+            </div>
+            
+            <p><strong>Ambiguity Index:</strong></p>
+            <div class="math-formula">
+                $$A = \frac{\sum_{i=1}^{n} u_i \log(u_i)}{\log(n)}$$
+            </div>
+            
+            <p><strong>VUCA Composite Index:</strong></p>
+            <div class="math-formula">
+                $$\text{VUCA}_{\text{composite}} = \sum_{i=1}^{4} w_i \cdot \text{VUCA}_i$$
+            </div>
+            
+            <p>Dimana $w_i$ adalah bobot untuk setiap komponen dengan $\sum_{i=1}^{4} w_i = 1$</p>
+
+            <h4>2.2.2 MPC Components</h4>
+            <p>Komponen Middle Power Capabilities didefinisikan sebagai:</p>
+            
+            <p><strong>Economic Capability:</strong></p>
+            <div class="math-formula">
+                $$E = \frac{\sum_{i=1}^{k} \alpha_i \cdot E_i}{\sum_{i=1}^{k} \alpha_i}$$
+            </div>
+            
+            <p><strong>Political Capability:</strong></p>
+            <div class="math-formula">
+                $$P = \frac{\sum_{i=1}^{k} \beta_i \cdot P_i}{\sum_{i=1}^{k} \beta_i}$$
+            </div>
+            
+            <p><strong>Security Capability:</strong></p>
+            <div class="math-formula">
+                $$S = \frac{\sum_{i=1}^{k} \gamma_i \cdot S_i}{\sum_{i=1}^{k} \gamma_i}$$
+            </div>
+            
+            <p><strong>Diplomatic Capability:</strong></p>
+            <div class="math-formula">
+                $$D = \frac{\sum_{i=1}^{k} \delta_i \cdot D_i}{\sum_{i=1}^{k} \delta_i}$$
+            </div>
+            
+            <p><strong>MPC Composite Score:</strong></p>
+            <div class="math-formula">
+                $$\text{MPC} = \alpha \cdot E + \beta \cdot P + \gamma \cdot S + \delta \cdot D$$
+            </div>
+            
+            <p>Dengan bobot default: $\mathbf{w}_{\text{MPC}} = [0.30, 0.25, 0.25, 0.20]^T$</p>
+
+            <h4>2.2.3 Predictive Engine</h4>
+            <ul>
+                <li><strong>Machine Learning:</strong> Random Forest, Neural Networks, SVM</li>
+                <li><strong>Bayesian Networks:</strong> Probabilistic reasoning untuk uncertainty</li>
+                <li><strong>Time Series Analysis:</strong> ARIMA, VAR, Prophet untuk forecasting</li>
+                <li><strong>Monte Carlo Simulation:</strong> Scenario analysis dan risk assessment</li>
+            </ul>
+
+            <h4>2.2.4 Optimization Engine</h4>
+            <ul>
+                <li><strong>Resource Allocation:</strong> Linear programming, genetic algorithms</li>
+                <li><strong>Risk Assessment:</strong> Monte Carlo simulation, sensitivity analysis</li>
+                <li><strong>Strategic Recommendations:</strong> Multi-criteria decision analysis</li>
+            </ul>
+        </section>
+
+        <section id="mathematical">
+            <h2>3. MATHEMATICAL FRAMEWORK DAN MODEL</h2>
+            
+            <h3>3.1 VUCA Index Mathematical Framework</h3>
+            
+            <h4>3.1.1 Volatility Index (V)</h4>
+            <p>Volatility Index mengukur perubahan cepat dalam geopolitik berdasarkan koefisien variasi:</p>
+            <div class="math-formula">
+                $$V = \frac{\sigma}{\mu} \times 100\%$$
+            </div>
+            <p>Dimana:</p>
+            <ul>
+                <li>$\sigma$ = Standard deviation dari time series</li>
+                <li>$\mu$ = Mean dari time series</li>
+            </ul>
+            
+            <p><strong>Implementation:</strong></p>
+            <div class="code-block">
+<pre>def calculate_volatility_index(time_series):
+    """
+    Calculate Volatility Index based on coefficient of variation
+    """
+    mean = np.mean(time_series)
+    std = np.std(time_series)
+    volatility_index = (std / mean) * 100 if mean != 0 else 0
+    return volatility_index</pre>
+            </div>
+
+            <h4>3.1.2 Uncertainty Index (U)</h4>
+            <p>Uncertainty Index menggunakan Shannon entropy untuk mengukur ketidakpastian:</p>
+            <div class="math-formula">
+                $$U = -\sum_{i=1}^{n} p_i \log_2(p_i)$$
+            </div>
+            <p>Dimana:</p>
+            <ul>
+                <li>$p_i$ = Probability dari event $i$ yang terjadi</li>
+                <li>$\log_2$ = Binary logarithm</li>
+                <li>$n$ = Jumlah possible events</li>
+            </ul>
+            
+            <p><strong>Implementation:</strong></p>
+            <div class="code-block">
+<pre>def calculate_uncertainty_index(probabilities):
+    """
+    Calculate Uncertainty Index using Shannon entropy
+    """
+    uncertainty = 0
+    for p in probabilities:
+        if p > 0:
+            uncertainty -= p * np.log2(p)
+    return uncertainty</pre>
+            </div>
+
+            <h4>3.1.3 Complexity Index (C)</h4>
+            <p>Complexity Index menggunakan information theory untuk mengukur kompleksitas sistem:</p>
+            <div class="math-formula">
+                $$C = \frac{\log_2(N)}{L}$$
+            </div>
+            <p>Dimana:</p>
+            <ul>
+                <li>$N$ = Jumlah distinct elements atau states</li>
+                <li>$L$ = Average length dari patterns atau sequences</li>
+            </ul>
+            
+            <p><strong>Implementation:</strong></p>
+            <div class="code-block">
+<pre>def calculate_complexity_index(elements, pattern_lengths):
+    """
+    Calculate Complexity Index using information theory
+    """
+    N = len(set(elements))
+    L = np.mean(pattern_lengths) if pattern_lengths else 1
+    complexity_index = np.log2(N) / L if L > 0 else 0
+    return complexity_index</pre>
+            </div>
+
+            <h4>3.1.4 Ambiguity Index (A)</h4>
+            <p>Ambiguity Index mengukur ambiguitas interpretasi dan makna:</p>
+            <div class="math-formula">
+                $$A = \frac{\sum_{i=1}^{n} u_i \log(u_i)}{\log(n)}$$
+            </div>
+            <p>Dimana:</p>
+            <ul>
+                <li>$u_i$ = Uncertainty level untuk factor $i$</li>
+                <li>$n$ = Jumlah factors yang dipertimbangkan</li>
+            </ul>
+            
+            <p><strong>Implementation:</strong></p>
+            <div class="code-block">
+<pre>def calculate_ambiguity_index(uncertainty_levels):
+    """
+    Calculate Ambiguity Index for interpretative clarity
+    """
+    n = len(uncertainty_levels)
+    if n <= 1:
+        return 0
+    
+    ambiguity = 0
+    for ui in uncertainty_levels:
+        if ui > 0:
+            ambiguity += ui * np.log(ui)
+    
+    ambiguity_index = ambiguity / np.log(n)
+    return ambiguity_index</pre>
+            </div>
+
+            <h4>3.1.5 VUCA Composite Index</h4>
+            <p>VUCA Composite Index menggabungkan semua komponen dengan bobot yang dapat disesuaikan:</p>
+            <div class="math-formula">
+                $$\text{VUCA}_{\text{composite}} = \sum_{i=1}^{4} w_i \cdot \text{VUCA}_i$$
+            </div>
+            <p>Dimana:</p>
+            <ul>
+                <li>$w_i$ = Bobot untuk komponen $i$ dengan $\sum_{i=1}^{4} w_i = 1$</li>
+                <li>$\text{VUCA}_i$ = Normalized value dari komponen $i$</li>
+            </ul>
+            
+            <p><strong>Default Weights:</strong></p>
+            <div class="math-formula">
+                $$\mathbf{w} = [0.25, 0.25, 0.25, 0.25]^T$$
+            </div>
+
+            <h3>3.2 Middle Power Capability (MPC) Mathematical Framework</h3>
+            
+            <h4>3.2.1 Economic Capability Score (E)</h4>
+            <p>Economic Capability Score mengukur kapabilitas ekonomi berdasarkan multiple indicators:</p>
+            <div class="math-formula">
+                $$E = \frac{\sum_{i=1}^{k} \alpha_i \cdot E_i}{\sum_{i=1}^{k} \alpha_i}$$
+            </div>
+            <p>Dimana:</p>
+            <ul>
+                <li>$\alpha_i$ = Bobot untuk economic indicator $i$</li>
+                <li>$E_i$ = Normalized value dari economic indicator $i$</li>
+            </ul>
+            
+            <p><strong>Economic Indicators:</strong></p>
+            <ul>
+                <li>GDP per capita</li>
+                <li>Trade volume</li>
+                <li>Foreign Direct Investment (FDI)</li>
+                <li>Economic growth rate</li>
+            </ul>
+
+            <h4>3.2.2 MPC Composite Score</h4>
+            <p>MPC Composite Score menggabungkan semua capability scores dengan bobot yang dapat disesuaikan:</p>
+            <div class="math-formula">
+                $$\text{MPC} = \alpha \cdot E + \beta \cdot P + \gamma \cdot S + \delta \cdot D$$
+            </div>
+            <p><strong>Default Weights:</strong></p>
+            <div class="math-formula">
+                $$\mathbf{w}_{\text{MPC}} = [0.30, 0.25, 0.25, 0.20]^T$$
+            </div>
+        </section>
+
+        <section id="architecture">
+            <h2>4. SYSTEM ARCHITECTURE DAN WORKFLOW</h2>
+            
+            <h3>4.1 Overview Sistem Terintegrasi</h3>
+            <div class="mermaid">
+                graph TB
+                    subgraph "INPUT LAYER"
+                        A1[Data Geopolitik]
+                        A2[Data Ekonomi]
+                        A3[Data Politik & Keamanan]
+                        A4[Data Historis]
+                        A5[Data Diplomatik]
+                    end
+                    
+                    subgraph "PROCESSING LAYER"
+                        B1[Data Preprocessing]
+                        B2[VUCA Index Calculation]
+                        B3[Middle Power Capability Analysis]
+                        B4[Machine Learning Models]
+                        B5[Time Series Analysis]
+                        B6[Optimization Engine]
+                    end
+                    
+                    subgraph "OUTPUT LAYER"
+                        C1[VUCA Composite Index]
+                        C2[MPC Score]
+                        C3[Predictive Analytics]
+                        C4[Resource Allocation Recommendations]
+                        C5[Risk Assessment]
+                        C6[Policy Recommendations]
+                    end
+                    
+                    A1 --> B1
+                    A2 --> B1
+                    A3 --> B1
+                    A4 --> B1
+                    A5 --> B1
+                    
+                    B1 --> B2
+                    B1 --> B3
+                    B1 --> B4
+                    B1 --> B5
+                    B1 --> B6
+                    
+                    B2 --> C1
+                    B3 --> C2
+                    B4 --> C3
+                    B5 --> C3
+                    B6 --> C4
+                    B2 --> C5
+                    B3 --> C6
+            </div>
+
+            <h3>4.2 Data Flow Architecture</h3>
+            <div class="mermaid">
+                flowchart LR
+                    subgraph "INPUT STREAMS"
+                        I1[Structured Data]
+                        I2[Semi-structured Data]
+                        I3[Unstructured Data]
+                    end
+                    
+                    subgraph "PROCESSING PIPELINE"
+                        P1[Data Ingestion]
+                        P2[Data Transformation]
+                        P3[Feature Engineering]
+                        P4[Model Training]
+                        P5[Prediction]
+                    end
+                    
+                    subgraph "OUTPUT STREAMS"
+                        O1[Real-time Alerts]
+                        O2[Periodic Reports]
+                        O3[Interactive Dashboards]
+                        O4[API Endpoints]
+                    end
+                    
+                    I1 --> P1
+                    I2 --> P1
+                    I3 --> P1
+                    
+                    P1 --> P2 --> P3 --> P4 --> P5
+                    
+                    P5 --> O1
+                    P5 --> O2
+                    P5 --> O3
+                    P5 --> O4
+            </div>
+
+            <h3>4.3 Workflow Penelitian Lengkap</h3>
+            <div class="mermaid">
+                flowchart TD
+                    Start([Mulai Penelitian]) --> DataCollection[Pengumpulan Data]
+                    
+                    subgraph "PHASE 1: DATA PREPARATION"
+                        DataCollection --> DataValidation[Validasi Data]
+                        DataValidation --> DataCleaning[Pembersihan Data]
+                        DataCleaning --> DataNormalization[Normalisasi & Standarisasi]
+                        DataNormalization --> EDA[Analisis Eksploratif Data]
+                    end
+                    
+                    subgraph "PHASE 2: MODEL DEVELOPMENT"
+                        EDA --> VUCAModel[Pengembangan Model VUCA]
+                        EDA --> MPCModel[Pengembangan Model MPC]
+                        VUCAModel --> ModelIntegration[Integrasi Model]
+                        MPCModel --> ModelIntegration
+                    end
+                    
+                    subgraph "PHASE 3: VALIDATION & TESTING"
+                        ModelIntegration --> CrossValidation[Cross-Validation]
+                        CrossValidation --> OutOfSample[Testing Out-of-Sample]
+                        OutOfSample --> PerformanceEval[Evaluasi Performa]
+                        PerformanceEval --> SensitivityAnalysis[Analisis Sensitivitas]
+                    end
+                    
+                    subgraph "PHASE 4: ANALYSIS & OUTPUT"
+                        SensitivityAnalysis --> ResultsAnalysis[Analisis Hasil]
+                        ResultsAnalysis --> PolicyRecommendations[Rekomendasi Kebijakan]
+                        PolicyRecommendations --> FinalReport[Laporan Akhir]
+                    end
+                    
+                    FinalReport --> End([Selesai])
+            </div>
+
+            <h3>4.4 Proses Perhitungan VUCA Index</h3>
+            <div class="mermaid">
+                flowchart LR
+                    subgraph "INPUT DATA"
+                        D1[Time Series Data]
+                        D2[Event Data]
+                        D3[Policy Changes]
+                        D4[Economic Indicators]
+                    end
+                    
+                    subgraph "VUCA COMPONENTS"
+                        V1["Volatility Index<br/>V = σ/μ × 100%"]
+                        V2["Uncertainty Index<br/>U = -∑pᵢ log₂(pᵢ)"]
+                        V3["Complexity Index<br/>C = log₂(N) / L"]
+                        V4["Ambiguity Index<br/>A = ∑uᵢ log(uᵢ) / log(n)"]
+                    end
+                    
+                    subgraph "AGGREGATION"
+                        W1[w₁ × V₁]
+                        W2[w₂ × V₂]
+                        W3[w₃ × V₃]
+                        W4[w₄ × V₄]
+                        VUCA_Composite["VUCA Composite = ∑wᵢ × VUCAᵢ"]
+                    end
+                    
+                    D1 --> V1
+                    D2 --> V2
+                    D3 --> V3
+                    D4 --> V4
+                    
+                    V1 --> W1
+                    V2 --> W2
+                    V3 --> W3
+                    V4 --> W4
+                    
+                    W1 --> VUCA_Composite
+                    W2 --> VUCA_Composite
+                    W3 --> VUCA_Composite
+                    W4 --> VUCA_Composite
+            </div>
+
+            <h3>4.5 Proses Perhitungan Middle Power Capability Index</h3>
+            <div class="mermaid">
+                flowchart TD
+                    subgraph "CAPABILITY INPUTS"
+                        E1["Economic Data<br/>GDP, Trade, FDI"]
+                        E2["Political Data<br/>Stability, Governance"]
+                        E3["Security Data<br/>Military, Alliances"]
+                        E4["Diplomatic Data<br/>Embassies, Treaties"]
+                    end
+                    
+                    subgraph "INDIVIDUAL SCORES"
+                        S1["Economic Score<br/>E"]
+                        S2["Political Score<br/>P"]
+                        S3["Security Score<br/>S"]
+                        S4["Diplomatic Score<br/>D"]
+                    end
+                    
+                    subgraph "WEIGHTED CALCULATION"
+                        W1[α × E]
+                        W2[β × P]
+                        W3[γ × S]
+                        W4[δ × D]
+                        MPC["MPC = α×E + β×P + γ×S + δ×D"]
+                    end
+                    
+                    E1 --> S1
+                    E2 --> S2
+                    E3 --> S3
+                    E4 --> S4
+                    
+                    S1 --> W1
+                    S2 --> W2
+                    S3 --> W3
+                    S4 --> W4
+                    
+                    W1 --> MPC
+                    W2 --> MPC
+                    W3 --> MPC
+                    W4 --> MPC
+            </div>
+        </section>
+
+        <section id="ml-models">
+            <h2>5. MACHINE LEARNING MODELS DAN ALGORITHMS</h2>
+            
+            <h3>5.1 Machine Learning Pipeline</h3>
+            <div class="mermaid">
+                flowchart TD
+                    subgraph "DATA PREPARATION"
+                        ML1[Feature Engineering]
+                        ML2["Data Splitting<br/>Train/Test/Validation"]
+                        ML3[Data Scaling]
+                    end
+                    
+                    subgraph "MODEL TRAINING"
+                        ML4["Random Forest<br/>Ensemble Probability"]
+                        ML5["Neural Network<br/>Multi-layer Perceptron"]
+                        ML6["Time Series Models<br/>ARIMA, VAR"]
+                    end
+                    
+                    subgraph "MODEL EVALUATION"
+                        ML7[Cross-Validation]
+                        ML8[Performance Metrics]
+                        ML9[Model Selection]
+                    end
+                    
+                    subgraph "PREDICTION & OUTPUT"
+                        ML10[VUCA Level Classification]
+                        ML11[MPC Score Prediction]
+                        ML12[Risk Assessment]
+                    end
+                    
+                    ML1 --> ML2 --> ML3
+                    ML3 --> ML4
+                    ML3 --> ML5
+                    ML3 --> ML6
+                    
+                    ML4 --> ML7
+                    ML5 --> ML7
+                    ML6 --> ML7
+                    
+                    ML7 --> ML8 --> ML9
+                    ML9 --> ML10
+                    ML9 --> ML11
+                    ML9 --> ML12
+            </div>
+
+            <h3>5.2 Random Forest for VUCA Classification</h3>
+            <p><strong>Model:</strong> Random Forest Classifier</p>
+            
+            <p><strong>Mathematical Foundation:</strong></p>
+            <p>Random Forest menggunakan ensemble dari multiple decision trees:</p>
+            <div class="math-formula">
+                $$\hat{y} = \text{mode}\{h_1(x), h_2(x), \ldots, h_T(x)\}$$
+            </div>
+            
+            <p><strong>Ensemble Probability:</strong></p>
+            <div class="math-formula">
+                $$P(y = c|x) = \frac{1}{T}\sum_{t=1}^{T} \mathbb{I}[h_t(x) = c]$$
+            </div>
+            
+            <p>Dimana:</p>
+            <ul>
+                <li>$h_t(x)$ = Prediction dari tree ke-$t$</li>
+                <li>$T$ = Total jumlah trees</li>
+                <li>$\mathbb{I}[\cdot]$ = Indicator function</li>
+            </ul>
+            
+            <p><strong>Implementation:</strong></p>
+            <div class="code-block">
+<pre>def train_vuca_classifier(X_train, y_train, hyperparameters=None):
+    from sklearn.ensemble import RandomForestClassifier
+    
+    if hyperparameters is None:
+        hyperparameters = {
+            'n_estimators': 100,
+            'max_depth': None,
+            'min_samples_split': 2,
+            'min_samples_leaf': 1,
+            'random_state': 42
+        }
+    
+    rf_classifier = RandomForestClassifier(**hyperparameters)
+    rf_classifier.fit(X_train, y_train)
+    
+    return rf_classifier</pre>
+            </div>
+
+            <h3>5.3 Neural Network for MPC Prediction</h3>
+            <p><strong>Model:</strong> Multi-layer Perceptron (MLP)</p>
+            
+            <p><strong>Mathematical Foundation:</strong></p>
+            <p>Neural network dengan activation function $\sigma$ dan multiple hidden layers:</p>
+            <div class="math-formula">
+                $$f(x) = W_L \cdot \sigma(W_{L-1} \cdot \sigma(\ldots \sigma(W_1 \cdot x + b_1) \ldots) + b_{L-1}) + b_L$$
+            </div>
+            
+            <p>Dimana:</p>
+            <ul>
+                <li>$W_i$ = Weight matrix untuk layer ke-$i$</li>
+                <li>$b_i$ = Bias vector untuk layer ke-$i$</li>
+                <li>$\sigma$ = Activation function (ReLU)</li>
+                <li>$L$ = Total jumlah layers</li>
+            </ul>
+            
+            <p><strong>Implementation:</strong></p>
+            <div class="code-block">
+<pre>def build_mpc_neural_network(input_dim, hidden_layers=[64, 32, 16]):
+    from tensorflow.keras.models import Sequential
+    from tensorflow.keras.layers import Dense, Dropout
+    
+    model = Sequential()
+    
+    # Input layer
+    model.add(Dense(hidden_layers[0], input_dim=input_dim, activation='relu'))
+    model.add(Dropout(0.2))
+    
+    # Hidden layers
+    for units in hidden_layers[1:]:
+        model.add(Dense(units, activation='relu'))
+        model.add(Dropout(0.2))
+    
+    # Output layer
+    model.add(Dense(1, activation='linear'))
+    
+    model.compile(optimizer='adam', loss='mse', metrics=['mae'])
+    return model</pre>
+            </div>
+
+            <h3>5.4 Time Series Models</h3>
+            
+            <h4>5.4.1 ARIMA Model</h4>
+            <p><strong>Formula:</strong> ARIMA(p,d,q)</p>
+            
+            <p><strong>Mathematical Formulation:</strong></p>
+            <div class="math-formula">
+                $$\phi(B)(1-B)^d X_t = \theta(B) \epsilon_t$$
+            </div>
+            
+            <p>Dimana:</p>
+            <ul>
+                <li>$\phi(B)$ = Autoregressive polynomial dengan order $p$</li>
+                <li>$(1-B)^d$ = Differencing operator dengan order $d$</li>
+                <li>$\theta(B)$ = Moving average polynomial dengan order $q$</li>
+                <li>$\epsilon_t$ = White noise error term</li>
+            </ul>
+            
+            <p><strong>Implementation:</strong></p>
+            <div class="code-block">
+<pre>def fit_arima_model(time_series, order=(1,1,1)):
+    from statsmodels.tsa.arima.model import ARIMA
+    
+    model = ARIMA(time_series, order=order)
+    fitted_model = model.fit()
+    
+    return fitted_model</pre>
+            </div>
+
+            <h4>5.4.2 VAR Model</h4>
+            <p><strong>Formula:</strong> VAR(p)</p>
+            
+            <p><strong>Mathematical Formulation:</strong></p>
+            <div class="math-formula">
+                $$\mathbf{X}_t = \mathbf{c} + \sum_{i=1}^{p} \mathbf{A}_i \mathbf{X}_{t-i} + \boldsymbol{\epsilon}_t$$
+            </div>
+            
+            <p>Dimana:</p>
+            <ul>
+                <li>$\mathbf{X}_t$ = Vector dari time series pada waktu $t$</li>
+                <li>$\mathbf{c}$ = Constant vector</li>
+                <li>$\mathbf{A}_i$ = Coefficient matrix untuk lag $i$</li>
+                <li>$\boldsymbol{\epsilon}_t$ = Error vector</li>
+            </ul>
+            
+            <p><strong>Implementation:</strong></p>
+            <div class="code-block">
+<pre>def fit_var_model(time_series, maxlags=5):
+    from statsmodels.tsa.vector_ar.var_model import VAR
+    
+    model = VAR(time_series)
+    results = model.select_order(maxlags)
+    fitted_model = model.fit(maxlags=results.aic)
+    
+    return fitted_model</pre>
+            </div>
+        </section>
+
+        <section id="optimization">
+            <h2>6. OPTIMIZATION ENGINE DAN RESOURCE ALLOCATION</h2>
+            
+            <h3>6.1 Linear Programming Model</h3>
+            
+            <p><strong>Mathematical Formulation:</strong></p>
+            <p>Optimasi alokasi sumber daya menggunakan linear programming:</p>
+            <div class="math-formula">
+                $$\max_{\mathbf{x}} \quad f(\mathbf{x}) = \mathbf{w}^T \mathbf{x}$$
+            </div>
+            
+            <p><strong>Subject to:</strong></p>
+            <div class="math-formula">
+                $$\mathbf{A} \mathbf{x} \leq \mathbf{b}$$
+                $$\mathbf{x} \geq \mathbf{0}$$
+            </div>
+            
+            <p>Dimana:</p>
+            <ul>
+                <li>$\mathbf{x}$ = Vector dari decision variables (alokasi sumber daya)</li>
+                <li>$\mathbf{w}$ = Vector dari objective weights</li>
+                <li>$\mathbf{A}$ = Constraint matrix</li>
+                <li>$\mathbf{b}$ = Right-hand side constraint vector</li>
+            </ul>
+            
+            <p><strong>Implementation:</strong></p>
+            <div class="code-block">
+<pre>def optimize_resource_allocation(objective_weights, costs, budget, constraints_matrix, constraints_rhs):
+    from scipy.optimize import linprog
+    
+    # Minimize negative objective (equivalent to maximizing)
+    objective = [-w for w in objective_weights]
+    
+    # Solve linear programming problem
+    result = linprog(
+        c=objective,
+        A_ub=constraints_matrix,
+        b_ub=constraints_rhs,
+        bounds=[(0, None)] * len(objective_weights),
+        method='highs'
+    )
+    
+    return result</pre>
+            </div>
+
+            <h3>6.2 Optimization Engine Process</h3>
+            <div class="mermaid">
+                flowchart LR
+                    subgraph "CONSTRAINTS INPUT"
+                        C1["Budget Constraint<br/>∑cᵢxᵢ ≤ B"]
+                        C2["Resource Limits<br/>xᵢ ≥ 0 for all i"]
+                        C3["Policy Constraints"]
+                    end
+                    
+                    subgraph "OPTIMIZATION MODEL"
+                        O1["Objective Function<br/>max f(x) = ∑wᵢxᵢ"]
+                        O2["Constraint Solver"]
+                        O3["Optimal Solution"]
+                    end
+                    
+                    subgraph "OUTPUT RECOMMENDATIONS"
+                        R1["Resource Allocation"]
+                        R2["Capability Development Priority"]
+                        R3["Investment Strategy"]
+                    end
+                    
+                    C1 --> O1
+                    C2 --> O1
+                    C3 --> O1
+                    
+                    O1 --> O2 --> O3
+                    O3 --> R1
+                    O3 --> R2
+                    O3 --> R3
+            </div>
+
+            <h3>6.3 Multi-Objective Optimization</h3>
+            
+            <p><strong>Pareto Optimal Solution:</strong></p>
+            <p>Untuk multiple objectives, kita mencari Pareto optimal solution:</p>
+            <div class="math-formula">
+                $$\min_{\mathbf{x}} \quad [f_1(\mathbf{x}), f_2(\mathbf{x}), \ldots, f_k(\mathbf{x})]^T$$
+            </div>
+            
+            <p><strong>Weighted Sum Method:</strong></p>
+            <p>Menggunakan weighted sum untuk mengkombinasikan multiple objectives:</p>
+            <div class="math-formula">
+                $$F(\mathbf{x}) = \sum_{i=1}^{k} w_i \cdot f_i(\mathbf{x})$$
+            </div>
+            
+            <p>Dimana:</p>
+            <ul>
+                <li>$f_i(\mathbf{x})$ = Objective function ke-$i$</li>
+                <li>$w_i$ = Weight untuk objective ke-$i$</li>
+                <li>$k$ = Jumlah objectives</li>
+            </ul>
+            
+            <p><strong>Implementation:</strong></p>
+            <div class="code-block">
+<pre>def multi_objective_optimization(objectives, weights, constraints):
+    """
+    Multi-objective optimization using weighted sum method
+    """
+    from scipy.optimize import minimize
+    
+    def objective_function(x):
+        return sum(w * obj(x) for w, obj in zip(weights, objectives))
+    
+    result = minimize(
+        objective_function,
+        x0=[0.5] * len(constraints),
+        constraints=constraints,
+        method='SLSQP'
+    )
+    
+    return result</pre>
+            </div>
+
+            <h3>6.4 Resource Allocation Optimization</h3>
+            
+            <p><strong>Capability Development Objective:</strong></p>
+            <div class="math-formula">
+                $$\max_{\mathbf{x}} \quad \sum_{i=1}^{n} w_i \cdot \text{MPC}_i(\mathbf{x})$$
+            </div>
+            
+            <p><strong>Budget Constraint:</strong></p>
+            <div class="math-formula">
+                $$\sum_{i=1}^{n} c_i \cdot x_i \leq B$$
+            </div>
+            
+            <p><strong>Resource Efficiency Constraint:</strong></p>
+            <div class="math-formula">
+                $$\frac{\text{MPC}_{\text{total}}(\mathbf{x})}{\sum_{i=1}^{n} c_i \cdot x_i} \geq \epsilon$$
+            </div>
+            
+            <p>Dimana:</p>
+            <ul>
+                <li>$\text{MPC}_i(\mathbf{x})$ = MPC score untuk capability $i$</li>
+                <li>$c_i$ = Cost untuk development capability $i$</li>
+                <li>$B$ = Total budget</li>
+                <li>$\epsilon$ = Minimum efficiency threshold</li>
+            </ul>
+        </section>
+
+        <section id="risk-assessment">
+            <h2>7. RISK ASSESSMENT DAN ANALYTICS</h2>
+            
+            <h3>7.1 Bayesian Network Structure</h3>
+            <div class="mermaid">
+                graph TD
+                    subgraph "ROOT NODES"
+                        BN1[Economic Conditions]
+                        BN2[Political Stability]
+                        BN3[Security Environment]
+                    end
+                    
+                    subgraph "INTERMEDIATE NODES"
+                        BN4[VUCA Level]
+                        BN5[Regional Tensions]
+                        BN6[Alliance Strength]
+                    end
+                    
+                    subgraph "TARGET NODES"
+                        BN7[Middle Power Capability]
+                        BN8[Diplomatic Success]
+                        BN9[Risk Level]
+                    end
+                    
+                    BN1 --> BN4
+                    BN2 --> BN4
+                    BN3 --> BN4
+                    
+                    BN1 --> BN5
+                    BN2 --> BN5
+                    BN3 --> BN6
+                    
+                    BN4 --> BN7
+                    BN5 --> BN7
+                    BN6 --> BN7
+                    
+                    BN7 --> BN8
+                    BN7 --> BN9
+            </div>
+
+            <h3>7.2 Monte Carlo Simulation Process</h3>
+            <div class="mermaid">
+                flowchart TD
+                    subgraph "SCENARIO GENERATION"
+                        MC1[Parameter Sampling]
+                        MC2[Distribution Functions]
+                        MC3[Random Number Generation]
+                    end
+                    
+                    subgraph "SIMULATION EXECUTION"
+                        MC4[Model Execution]
+                        MC5[Result Collection]
+                        MC6[Statistical Analysis]
+                    end
+                    
+                    subgraph "OUTPUT ANALYSIS"
+                        MC7[Confidence Intervals]
+                        MC8[Risk Assessment]
+                        MC9[Sensitivity Analysis]
+                    end
+                    
+                    MC1 --> MC2 --> MC3
+                    MC3 --> MC4 --> MC5 --> MC6
+                    MC6 --> MC7
+                    MC6 --> MC8
+                    MC6 --> MC9
+            </div>
+
+            <h3>7.3 Value at Risk (VaR)</h3>
+            <p><strong>Mathematical Definition:</strong></p>
+            <p>VaR mengukur potential loss pada confidence level tertentu:</p>
+            <div class="math-formula">
+                $$\text{VaR}(\alpha) = F^{-1}(\alpha)$$
+            </div>
+            
+            <p><strong>Parametric VaR (Normal Distribution):</strong></p>
+            <div class="math-formula">
+                $$\text{VaR}(\alpha) = \mu + \sigma \cdot \Phi^{-1}(\alpha)$$
+            </div>
+            
+            <p>Dimana:</p>
+            <ul>
+                <li>$\alpha$ = Confidence level (e.g., 0.05 untuk 95% confidence)</li>
+                <li>$\mu$ = Mean dari distribution</li>
+                <li>$\sigma$ = Standard deviation dari distribution</li>
+                <li>$\Phi^{-1}(\alpha)$ = Inverse cumulative normal distribution</li>
+            </ul>
+            
+            <p><strong>Implementation:</strong></p>
+            <div class="code-block">
+<pre>def calculate_var(data, confidence_level=0.05):
+    import numpy as np
+    var = np.percentile(data, confidence_level * 100)
+    return var</pre>
+            </div>
+
+            <h3>7.4 Expected Shortfall (ES)</h3>
+            <p><strong>Mathematical Definition:</strong></p>
+            <p>ES mengukur expected loss melebihi VaR threshold:</p>
+            <div class="math-formula">
+                $$\text{ES}(\alpha) = E[X|X \leq \text{VaR}(\alpha)]$$
+            </div>
+            
+            <p><strong>Empirical ES:</strong></p>
+            <div class="math-formula">
+                $$\text{ES}(\alpha) = \frac{1}{n\alpha} \sum_{i=1}^{n} x_i \cdot \mathbb{I}[x_i \leq \text{VaR}(\alpha)]$$
+            </div>
+            
+            <p>Dimana:</p>
+            <ul>
+                <li>$X$ = Random variable (returns/losses)</li>
+                <li>$\mathbb{I}[\cdot]$ = Indicator function</li>
+                <li>$n$ = Jumlah observations</li>
+            </ul>
+            
+            <p><strong>Implementation:</strong></p>
+            <div class="code-block">
+<pre>def calculate_expected_shortfall(data, confidence_level=0.05):
+    import numpy as np
+    var = calculate_var(data, confidence_level)
+    es = np.mean(data[data <= var])
+    return es</pre>
+            </div>
+
+            <h3>7.5 Risk Assessment Framework</h3>
+            
+            <p><strong>Risk Score Calculation:</strong></p>
+            <div class="math-formula">
+                $$R = \sum_{i=1}^{k} w_i \cdot R_i$$
+            </div>
+            
+            <p><strong>Risk Level Classification:</strong></p>
+            <div class="math-formula">
+                $$\text{Risk Level} = \begin{cases}
+                \text{Low} & \text{if } R < 0.3 \\
+                \text{Medium} & \text{if } 0.3 \leq R < 0.7 \\
+                \text{High} & \text{if } R \geq 0.7
+                \end{cases}$$
+            </div>
+            
+            <p><strong>Risk Mitigation Strategy:</strong></p>
+            <div class="math-formula">
+                $$\text{Effectiveness} = \frac{\text{Risk Reduction}}{\text{Implementation Cost}}$$
+            </div>
+            
+            <p>Dimana:</p>
+            <ul>
+                <li>$R_i$ = Risk score untuk factor $i$</li>
+                <li>$w_i$ = Weight untuk risk factor $i$</li>
+                <li>$k$ = Jumlah risk factors</li>
+            </ul>
+        </section>
+
+        <section id="performance">
+            <h2>8. PERFORMANCE METRICS DAN VALIDATION</h2>
+            
+            <h3>8.1 Classification Metrics</h3>
+            <p>Untuk model klasifikasi VUCA levels, kita menggunakan metrics berikut:</p>
+            
+            <p><strong>Confusion Matrix:</strong></p>
+            <div class="math-formula">
+                $$\mathbf{C} = \begin{bmatrix} TP & FP \\ FN & TN \end{bmatrix}$$
+            </div>
+            
+            <p><strong>Accuracy:</strong></p>
+            <div class="math-formula">
+                $$\text{Acc} = \frac{TP + TN}{TP + TN + FP + FN}$$
+            </div>
+            
+            <p><strong>Precision:</strong></p>
+            <div class="math-formula">
+                $$\text{Prec} = \frac{TP}{TP + FP}$$
+            </div>
+            
+            <p><strong>Recall:</strong></p>
+            <div class="math-formula">
+                $$\text{Rec} = \frac{TP}{TP + FN}$$
+            </div>
+            
+            <p><strong>F1-Score:</strong></p>
+            <div class="math-formula">
+                $$\text{F1} = 2 \cdot \frac{\text{Prec} \cdot \text{Rec}}{\text{Prec} + \text{Rec}}$$
+            </div>
+            
+            <p>Dimana:</p>
+            <ul>
+                <li>$TP$ = True Positives</li>
+                <li>$TN$ = True Negatives</li>
+                <li>$FP$ = False Positives</li>
+                <li>$FN$ = False Negatives</li>
+            </ul>
+            
+            <p><strong>Implementation:</strong></p>
+            <div class="code-block">
+<pre>def calculate_classification_metrics(y_true, y_pred):
+    from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+    
+    metrics = {
+        'accuracy': accuracy_score(y_true, y_pred),
+        'precision': precision_score(y_true, y_pred, average='weighted'),
+        'recall': recall_score(y_true, y_pred, average='weighted'),
+        'f1_score': f1_score(y_true, y_pred, average='weighted')
+    }
+    
+    return metrics</pre>
+            </div>
+
+            <h3>8.2 Regression Metrics</h3>
+            <p>Untuk model regresi MPC score prediction, kita menggunakan metrics berikut:</p>
+            
+            <p><strong>Mean Squared Error (MSE):</strong></p>
+            <div class="math-formula">
+                $$\text{MSE} = \frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2$$
+            </div>
+            
+            <p><strong>Root Mean Squared Error (RMSE):</strong></p>
+            <div class="math-formula">
+                $$\text{RMSE} = \sqrt{\text{MSE}} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}$$
+            </div>
+            
+            <p><strong>Mean Absolute Error (MAE):</strong></p>
+            <div class="math-formula">
+                $$\text{MAE} = \frac{1}{n}\sum_{i=1}^{n}|y_i - \hat{y}_i|$$
+            </div>
+            
+            <p><strong>R² Score (Coefficient of Determination):</strong></p>
+            <div class="math-formula">
+                $$R^2 = 1 - \frac{\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}{\sum_{i=1}^{n}(y_i - \bar{y})^2}$$
+            </div>
+            
+            <p>Dimana:</p>
+            <ul>
+                <li>$y_i$ = Actual value untuk observation $i$</li>
+                <li>$\hat{y}_i$ = Predicted value untuk observation $i$</li>
+                <li>$\bar{y}$ = Mean dari actual values</li>
+                <li>$n$ = Jumlah observations</li>
+            </ul>
+            
+            <p><strong>Implementation:</strong></p>
+            <div class="code-block">
+<pre>def calculate_regression_metrics(y_true, y_pred):
+    from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+    import numpy as np
+    
+    mse = mean_squared_error(y_true, y_pred)
+    rmse = np.sqrt(mse)
+    mae = mean_absolute_error(y_true, y_pred)
+    r2 = r2_score(y_true, y_pred)
+    
+    metrics = {
+        'mse': mse,
+        'rmse': rmse,
+        'mae': mae,
+        'r2': r2
+    }
+    
+    return metrics</pre>
+            </div>
+
+            <h3>8.3 Cross-Validation</h3>
+            <p>Cross-validation memastikan robust evaluation dari model performance:</p>
+            
+            <p><strong>K-Fold Cross-Validation:</strong></p>
+            <div class="math-formula">
+                $$\text{CV}_{\text{score}} = \frac{1}{k}\sum_{i=1}^{k} \text{Score}_i$$
+            </div>
+            
+            <p><strong>Standard Error of CV:</strong></p>
+            <div class="math-formula">
+                $$\text{SE}_{\text{CV}} = \sqrt{\frac{1}{k(k-1)}\sum_{i=1}^{k}(\text{Score}_i - \text{CV}_{\text{score}})^2}$$
+            </div>
+            
+            <p>Dimana:</p>
+            <ul>
+                <li>$k$ = Jumlah folds</li>
+                <li>$\text{Score}_i$ = Performance score pada fold ke-$i$</li>
+            </ul>
+            
+            <p><strong>Implementation:</strong></p>
+            <div class="code-block">
+<pre>def perform_cross_validation(model, X, y, cv=5, scoring='accuracy'):
+    from sklearn.model_selection import cross_val_score
+    
+    cv_scores = cross_val_score(model, X, y, cv=cv, scoring=scoring)
+    
+    return {
+        'scores': cv_scores,
+        'mean': cv_scores.mean(),
+        'std': cv_scores.std()
+    }</pre>
+            </div>
+
+            <h3>8.4 Model Validation Framework</h3>
+            <p>Framework validasi yang komprehensif untuk memastikan model reliability:</p>
+            
+            <p><strong>Validation Score:</strong></p>
+            <div class="math-formula">
+                $$\text{Validation Score} = \alpha \cdot \text{Accuracy} + \beta \cdot \text{Stability} + \gamma \cdot \text{Generalization}$$
+            </div>
+            
+            <p><strong>Model Stability Index:</strong></p>
+            <div class="math-formula">
+                $$\text{Stability} = 1 - \frac{\sigma_{\text{performance}}}{\mu_{\text{performance}}}$$
+            </div>
+            
+            <p><strong>Generalization Gap:</strong></p>
+            <div class="math-formula">
+                $$\text{Generalization Gap} = |\text{Train Score} - \text{Test Score}|$$
+            </div>
+            
+            <p>Dimana:</p>
+            <ul>
+                <li>$\alpha, \beta, \gamma$ = Weights untuk different validation aspects</li>
+                <li>$\sigma_{\text{performance}}$ = Standard deviation dari performance scores</li>
+                <li>$\mu_{\text{performance}}$ = Mean dari performance scores</li>
+            </ul>
+        </section>
+
+        <section id="roadmap">
+            <h2>9. IMPLEMENTATION ROADMAP DAN PHASES</h2>
+            
+            <div class="phase-box">
+                <h4>Phase 1: Foundation (Months 1-6)</h4>
+                <ul>
+                    <li><strong>Core Framework Development:</strong> VUCA Index Calculation, MPC Score Development, Integration Framework, Basic Predictive Models</li>
+                    <li><strong>Data Infrastructure:</strong> Data Sources Integration, Data Pipeline Development, Data Quality Framework, Storage Architecture</li>
+                    <li><strong>Basic System Architecture:</strong> Core Services, API Development, Basic UI, Security Framework</li>
+                </ul>
+            </div>
+
+            <div class="phase-box">
+                <h4>Phase 2: Core Features (Months 7-12)</h4>
+                <ul>
+                    <li><strong>Predictive Analytics:</strong> Advanced ML Models, Time Series Analysis, Scenario Planning, Risk Assessment</li>
+                    <li><strong>Resource Optimization:</strong> Optimization Engine, Multi-objective Optimization, Sensitivity Analysis, Recommendation Engine</li>
+                    <li><strong>Advanced Analytics:</strong> Real-time Analytics, Advanced Visualization, Reporting System, Performance Monitoring</li>
+                </ul>
+            </div>
+
+            <div class="phase-box">
+                <h4>Phase 3: Advanced Features (Months 13-18)</h4>
+                <ul>
+                    <li><strong>Advanced Intelligence:</strong> Natural Language Processing, Sentiment Analysis, Network Analysis, Advanced Forecasting</li>
+                    <li><strong>System Enhancement:</strong> Mobile Application, Advanced Security, Performance Optimization, Scalability Enhancement</li>
+                </ul>
+            </div>
+
+            <div class="phase-box">
+                <h4>Phase 4: Deployment & Optimization (Months 19-24)</h4>
+                <ul>
+                    <li><strong>Production Deployment:</strong> Production Environment, User Training, Documentation, Support System</li>
+                </ul>
+            </div>
+
+            <h3>9.5 Resource Requirements</h3>
+            
+            <h4>9.5.1 Human Resources</h4>
+            <ul>
+                <li><strong>Research Team:</strong> 3-5 researchers dengan expertise di international relations dan data science</li>
+                <li><strong>Technical Team:</strong> 2-3 software engineers, 1-2 data scientists, 1 DevOps engineer</li>
+                <li><strong>Domain Experts:</strong> Diplomats, policymakers, academic advisors</li>
+            </ul>
+
+            <h4>9.5.2 Technical Resources</h4>
+            <ul>
+                <li><strong>Computing Infrastructure:</strong> Cloud-based scalable computing resources</li>
+                <li><strong>Data Storage:</strong> Secure data storage dengan backup dan recovery</li>
+                <li><strong>Development Tools:</strong> IDE, version control, CI/CD pipeline</li>
+            </ul>
+
+            <h4>9.5.3 Budget Requirements</h4>
+            <ul>
+                <li><strong>Development Phase:</strong> $200,000 - $300,000</li>
+                <li><strong>Infrastructure:</strong> $50,000 - $100,000 per year</li>
+                <li><strong>Maintenance:</strong> $30,000 - $50,000 per year</li>
+            </ul>
+        </section>
+
+        <section id="technical">
+            <h2>10. TECHNICAL IMPLEMENTATION DAN REQUIREMENTS</h2>
+            
+            <h3>10.1 Technology Stack</h3>
+            
+            <h4>10.1.1 Backend Technologies</h4>
+            <ul>
+                <li><strong>Programming Languages:</strong> Python 3.9+, Node.js</li>
+                <li><strong>Frameworks:</strong> FastAPI, Flask, Express.js</li>
+                <li><strong>Machine Learning:</strong> Scikit-learn, TensorFlow, PyTorch</li>
+                <li><strong>Data Processing:</strong> Pandas, NumPy, Apache Spark</li>
+            </ul>
+
+            <h4>10.1.2 Database Technologies</h4>
+            <ul>
+                <li><strong>Primary Database:</strong> PostgreSQL 14+</li>
+                <li><strong>Document Store:</strong> MongoDB 6.0+</li>
+                <li><strong>Cache:</strong> Redis 7.0+</li>
+                <li><strong>Search Engine:</strong> Elasticsearch 8.0+</li>
+            </ul>
+
+            <h4>10.1.3 Infrastructure</h4>
+            <ul>
+                <li><strong>Containerization:</strong> Docker, Kubernetes</li>
+                <li><strong>Cloud Platform:</strong> AWS, Azure, or GCP</li>
+                <li><strong>Monitoring:</strong> Prometheus, Grafana</li>
+                <li><strong>CI/CD:</strong> GitHub Actions, Jenkins</li>
+            </ul>
+
+            <h3>10.2 System Architecture</h3>
+            
+            <h4>10.2.1 Microservices Architecture</h4>
+            <p>System menggunakan microservices architecture untuk scalability dan maintainability:</p>
+            
+            <p><strong>Service Components:</strong></p>
+            <ul>
+                <li><strong>VUCA Service:</strong> Handles VUCA index calculations</li>
+                <li><strong>MPC Service:</strong> Manages middle power capability scoring</li>
+                <li><strong>Prediction Service:</strong> ML model inference dan predictions</li>
+                <li><strong>Optimization Service:</strong> Resource allocation optimization</li>
+            </ul>
+
+            <h4>10.2.2 Data Pipeline Architecture</h4>
+            <p>Data pipeline menggunakan ETL (Extract, Transform, Load) pattern:</p>
+            
+            <p><strong>Pipeline Stages:</strong></p>
+            <ul>
+                <li><strong>Data Ingestion:</strong> Real-time dan batch data collection</li>
+                <li><strong>Data Processing:</strong> Cleaning, transformation, feature engineering</li>
+                <li><strong>Data Storage:</strong> Raw data lake, processed data warehouse</li>
+                <li><strong>Data Serving:</strong> API endpoints untuk data access</li>
+            </ul>
+
+            <h3>10.3 Security Framework</h3>
+            
+            <h4>10.3.1 Security Layers</h4>
+            <ul>
+                <li><strong>Authentication:</strong> JWT tokens, OAuth 2.0</li>
+                <li><strong>Authorization:</strong> Role-based access control (RBAC)</li>
+                <li><strong>Data Encryption:</strong> AES-256 encryption at rest and in transit</li>
+                <li><strong>Network Security:</strong> HTTPS, VPN, firewall rules</li>
+            </ul>
+
+            <h4>10.3.2 Compliance Requirements</h4>
+            <ul>
+                <li><strong>Data Protection:</strong> GDPR compliance</li>
+                <li><strong>International Standards:</strong> ISO 27001, SOC 2</li>
+                <li><strong>Government Security:</strong> FISMA, FedRAMP (if applicable)</li>
+                <li><strong>Industry Standards:</strong> OWASP security guidelines</li>
+            </ul>
+        </section>
+
+        <section id="metrics">
+            <h2>11. SUCCESS METRICS DAN KPIs</h2>
+            
+            <h3>11.1 Technical Metrics</h3>
+            
+            <h4>11.1.1 Model Performance</h4>
+            <ul>
+                <li><strong>Predictive Accuracy:</strong> R² > 0.8 untuk core models</li>
+                <li><strong>Forecasting Accuracy:</strong> < 15% error untuk 1-year forecasts</li>
+                <li><strong>Model Stability:</strong> < 10% performance variation over time</li>
+                <li><strong>Response Time:</strong> < 3 seconds untuk dashboard loading</li>
+            </ul>
+
+            <h4>11.1.2 System Performance</h4>
+            <ul>
+                <li><strong>System Uptime:</strong> > 99.5% availability</li>
+                <li><strong>API Response Time:</strong> < 500ms untuk 95% of requests</li>
+                <li><strong>Data Processing Speed:</strong> Real-time processing untuk critical data</li>
+                <li><strong>Scalability:</strong> Support untuk 1000+ concurrent users</li>
+            </ul>
+
+            <h3>11.2 Business Metrics</h3>
+            
+            <h4>11.2.1 User Adoption</h4>
+            <ul>
+                <li><strong>Active Users:</strong> > 80% target user adoption</li>
+                <li><strong>User Engagement:</strong> > 60% daily active users</li>
+                <li><strong>Feature Utilization:</strong> > 70% core feature utilization</li>
+                <li><strong>User Satisfaction:</strong> > 4.0/5.0 user satisfaction score</li>
+            </ul>
+
+            <h4>11.2.2 Policy Impact</h4>
+            <ul>
+                <li><strong>Policy Adoption:</strong> > 60% recommendation adoption rate</li>
+                <li><strong>Implementation Success:</strong> > 80% successful implementation rate</li>
+                <li><strong>Stakeholder Satisfaction:</strong> > 4.0/5.0 stakeholder satisfaction</li>
+                <li><strong>ROI Realization:</strong> > 3x return on investment</li>
+            </ul>
+        </section>
+
+        <section id="stakeholders">
+            <h2>12. STAKEHOLDER ENGAGEMENT</h2>
+            
+            <h3>12.1 Primary Stakeholders</h3>
+            
+            <h4>12.1.1 Academic Stakeholders</h4>
+            <ul>
+                <li><strong>Supervisors:</strong> Dissertation supervisors dan committee members</li>
+                <li><strong>Academic Peers:</strong> Fellow researchers dan academic community</li>
+                <li><strong>Research Institutions:</strong> Universities dan research centers</li>
+                <li><strong>Academic Journals:</strong> High-impact journals untuk publication</li>
+            </ul>
+
+            <h4>12.1.2 Government Stakeholders</h4>
+            <ul>
+                <li><strong>Foreign Ministry:</strong> Kementerian Luar Negeri Indonesia</li>
+                <li><strong>Defense Ministry:</strong> Kementerian Pertahanan</li>
+                <li><strong>Planning Agency:</strong> Bappenas dan regional planning agencies</li>
+                <li><strong>Intelligence Agencies:</strong> BIN dan related intelligence agencies</li>
+            </ul>
+
+            <h4>12.1.3 International Stakeholders</h4>
+            <ul>
+                <li><strong>ASEAN Secretariat:</strong> ASEAN coordination dan cooperation</li>
+                <li><strong>UN Agencies:</strong> UN development dan cooperation agencies</li>
+                <li><strong>International Organizations:</strong> Think tanks dan research institutions</li>
+                <li><strong>Diplomatic Missions:</strong> Foreign diplomatic missions di Indonesia</li>
+            </ul>
+
+            <h3>12.2 Engagement Strategy</h3>
+            
+            <h4>12.2.1 Communication Plan</h4>
+            <ul>
+                <li><strong>Regular Updates:</strong> Monthly progress updates untuk stakeholders</li>
+                <li><strong>Stakeholder Meetings:</strong> Quarterly stakeholder meetings</li>
+                <li><strong>Progress Reports:</strong> Comprehensive progress reports</li>
+                <li><strong>Feedback Integration:</strong> Integration stakeholder feedback</li>
+            </ul>
+
+            <h4>12.2.2 Collaboration Opportunities</h4>
+            <ul>
+                <li><strong>Joint Research:</strong> Collaborative research projects</li>
+                <li><strong>Data Sharing:</strong> Data sharing agreements</li>
+                <li><strong>Expert Consultation:</strong> Expert consultation dan validation</li>
+                <li><strong>Implementation Support:</strong> Support untuk implementation</li>
+            </ul>
+        </section>
+
+        <section id="conclusion">
+            <h2>13. CONCLUSION DAN NEXT STEPS</h2>
+            
+            <h3>13.1 Summary of Solution</h3>
+            <p>Framework VUCA-MPC terintegrasi ini mengatasi masalah fragmentation dengan menyediakan:</p>
+            <ol>
+                <li><strong>Unified Framework:</strong> Satu framework yang mengintegrasikan VUCA dan MPC</li>
+                <li><strong>Predictive Capabilities:</strong> Machine learning untuk diplomatic success prediction</li>
+                <li><strong>Resource Optimization:</strong> Optimal resource allocation berdasarkan predictions</li>
+                <li><strong>Practical Applications:</strong> Implementable recommendations untuk policymakers</li>
+            </ol>
+
+            <h3>13.2 Key Innovations</h3>
+            <ul>
+                <li><strong>VUCA-MPC Integration:</strong> Framework baru yang mengintegrasikan VUCA dan MPC</li>
+                <li><strong>Predictive Diplomacy:</strong> Konsep baru dalam studi diplomasi</li>
+                <li><strong>Machine Learning Integration:</strong> Advanced analytics dalam international relations</li>
+                <li><strong>Resource Optimization:</strong> Framework untuk strategic resource allocation</li>
+            </ul>
+
+            <h3>13.3 Expected Outcomes</h3>
+            <ul>
+                <li><strong>Academic Contribution:</strong> Significant contribution to international relations theory</li>
+                <li><strong>Practical Value:</strong> Implementable framework untuk foreign policy</li>
+                <li><strong>Technology Innovation:</strong> Advanced technology integration dalam diplomacy</li>
+                <li><strong>Knowledge Transfer:</strong> Comprehensive knowledge transfer ke stakeholders</li>
+            </ul>
+
+            <h3>13.4 Next Steps</h3>
+            
+            <h4>13.4.1 Immediate Actions (Next 30 days)</h4>
+            <ol>
+                <li><strong>Framework Refinement:</strong> Refine VUCA-MPC integration framework</li>
+                <li><strong>Methodology Development:</strong> Develop detailed methodology</li>
+                <li><strong>Data Collection Planning:</strong> Plan comprehensive data collection</li>
+                <li><strong>Stakeholder Engagement:</strong> Engage key stakeholders</li>
+            </ol>
+
+            <h4>13.4.2 Short-term Actions (Next 3 months)</h4>
+            <ol>
+                <li><strong>Model Development:</strong> Develop initial predictive models</li>
+                <li><strong>Data Integration:</strong> Integrate data sources</li>
+                <li><strong>System Architecture:</strong> Design system architecture</li>
+                <li><strong>Expert Consultation:</strong> Consult dengan expert panel</li>
+            </ol>
+
+            <h4>13.4.3 Medium-term Actions (Next 6 months)</h4>
+            <ol>
+                <li><strong>System Development:</strong> Develop core system components</li>
+                <li><strong>Model Validation:</strong> Validate models dengan expert panel</li>
+                <li><strong>Case Study Analysis:</strong> Conduct case study analysis</li>
+                <li><strong>Performance Testing:</strong> Test system performance</li>
+            </ol>
+        </section>
+
+        <section id="appendices">
+            <h2>14. APPENDICES</h2>
+            
+            <h3>14.1 Technical Specifications</h3>
+            <ul>
+                <li><strong>System Architecture:</strong> Detailed system architecture diagrams</li>
+                <li><strong>Data Models:</strong> Comprehensive data models dan schemas</li>
+                <li><strong>API Specifications:</strong> Complete API documentation</li>
+                <li><strong>Security Framework:</strong> Detailed security specifications</li>
+            </ul>
+
+            <h3>14.2 Implementation Details</h3>
+            <ul>
+                <li><strong>Project Plan:</strong> Detailed project plan dengan timelines</li>
+                <li><strong>Resource Requirements:</strong> Comprehensive resource requirements</li>
+                <li><strong>Risk Management:</strong> Detailed risk management plan</li>
+                <li><strong>Quality Assurance:</strong> Quality assurance procedures</li>
+            </ul>
+
+            <h3>14.3 Validation Framework</h3>
+            <ul>
+                <li><strong>Expert Panel:</strong> Expert panel composition dan validation process</li>
+                <li><strong>Case Study Framework:</strong> Case study selection dan analysis framework</li>
+                <li><strong>Performance Metrics:</strong> Detailed performance metrics dan benchmarks</li>
+                <li><strong>Success Criteria:</strong> Comprehensive success criteria dan evaluation framework</li>
+            </ul>
+        </section>
+
+        <section id="approval">
+            <h2>15. APPROVAL AND SIGN-OFF</h2>
+            
+            <h3>15.1 Document Approval</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th>Name</th>
+                        <th>Signature</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Solution Architect</td>
+                        <td>[Nama]</td>
+                        <td>[Signature]</td>
+                        <td>[Date]</td>
+                    </tr>
+                    <tr>
+                        <td>Technical Lead</td>
+                        <td>[Nama]</td>
+                        <td>[Signature]</td>
+                        <td>[Date]</td>
+                    </tr>
+                    <tr>
+                        <td>Research Lead</td>
+                        <td>[Nama]</td>
+                        <td>[Signature]</td>
+                        <td>[Date]</td>
+                    </tr>
+                    <tr>
+                        <td>Supervisor</td>
+                        <td>[Nama]</td>
+                        <td>[Signature]</td>
+                        <td>[Date]</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>15.2 Version History</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Version</th>
+                        <th>Date</th>
+                        <th>Author</th>
+                        <th>Changes</th>
+                        <th>Approval</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2.0</td>
+                        <td>[Date]</td>
+                        <td>[Author]</td>
+                        <td>Consolidated version</td>
+                        <td>[Approver]</td>
+                    </tr>
+                    <tr>
+                        <td>1.0</td>
+                        <td>[Date]</td>
+                        <td>[Author]</td>
+                        <td>Initial version</td>
+                        <td>[Approver]</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="mathematical-summary">
+            <h2>Mathematical Summary and Integration</h2>
+            
+            <h3>Complete System Mathematical Framework</h3>
+            
+            <p><strong>Integrated VUCA-MPC System:</strong></p>
+            <div class="math-formula">
+                $$\mathbf{S} = \begin{bmatrix} \text{VUCA}_{\text{composite}} \\ \text{MPC}_{\text{score}} \end{bmatrix} = \begin{bmatrix} \sum_{i=1}^{4} w_i \cdot \text{VUCA}_i \\ \alpha \cdot E + \beta \cdot P + \gamma \cdot S + \delta \cdot D \end{bmatrix}$$
+            </div>
+            
+            <p><strong>State Transition Equation:</strong></p>
+            <div class="math-formula">
+                $$\mathbf{X}_{t+1} = \mathbf{A} \mathbf{X}_t + \mathbf{B} \mathbf{u}_t + \boldsymbol{\epsilon}_t$$
+            </div>
+            
+            <p><strong>Statistical Inference Framework:</strong></p>
+            <div class="math-formula">
+                $$P(\boldsymbol{\theta}|\mathbf{D}) \propto P(\mathbf{D}|\boldsymbol{\theta}) \cdot P(\boldsymbol{\theta})$$
+            </div>
+            
+            <p><strong>Uncertainty Quantification:</strong></p>
+            <div class="math-formula">
+                $$U_{\text{total}} = U_{\text{aleatory}} + U_{\text{epistemic}}$$
+            </div>
+            
+            <p><strong>Risk Assessment Framework:</strong></p>
+            <div class="math-formula">
+                $$R = \sum_{i=1}^{k} w_i \cdot R_i$$
+            </div>
+            
+            <p><strong>Optimization Objective:</strong></p>
+            <div class="math-formula">
+                $$\max_{\mathbf{x}} \quad \sum_{i=1}^{n} w_i \cdot \text{MPC}_i(\mathbf{x})$$
+            </div>
+        </section>
+
+        <section id="references">
+            <h2>References and Further Reading</h2>
+            
+            <h3>Mathematical Foundations</h3>
+            <ul>
+                <li><strong>Linear Algebra:</strong> Strang, G. (2006). Linear Algebra and Its Applications</li>
+                <li><strong>Optimization:</strong> Boyd, S. & Vandenberghe, L. (2004). Convex Optimization</li>
+                <li><strong>Time Series:</strong> Hamilton, J.D. (1994). Time Series Analysis</li>
+                <li><strong>Machine Learning:</strong> Bishop, C.M. (2006). Pattern Recognition and Machine Learning</li>
+            </ul>
+
+            <h3>Statistical Methods</h3>
+            <ul>
+                <li><strong>Bayesian Statistics:</strong> Gelman, A. et al. (2013). Bayesian Data Analysis</li>
+                <li><strong>Risk Management:</strong> McNeil, A.J. et al. (2015). Quantitative Risk Management</li>
+                <li><strong>Forecasting:</strong> Hyndman, R.J. & Athanasopoulos, G. (2018). Forecasting: Principles and Practice</li>
+            </ul>
+
+            <h3>International Relations</h3>
+            <ul>
+                <li><strong>Middle Power Theory:</strong> Cooper, A.F. (1997). Niche Diplomacy: Middle Powers after the Cold War</li>
+                <li><strong>VUCA Framework:</strong> Bennett, N. & Lemoine, G.J. (2014). What VUCA Really Means for You</li>
+                <li><strong>Predictive Diplomacy:</strong> Various academic sources on predictive analytics in international relations</li>
+            </ul>
+        </section>
+
+        <div class="footer">
+            <p><em>Dokumen ini merupakan solusi terintegrasi yang mengkonsolidasikan semua komponen dari empat dokumen terpisah menjadi satu framework VUCA-MPC yang koheren dan implementatif. Framework ini dirancang untuk memberikan kontribusi akademik yang signifikan dan nilai praktis yang tinggi untuk pengembangan kebijakan luar negeri Indonesia dalam era VUCA.</em></p>
+        </div>
+    </div>
+</body>
+</html>
